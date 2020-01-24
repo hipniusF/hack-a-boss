@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Formularios</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Formularios</h1>
+        </header>
+
+        <section id="registro">
+            <h2>Registro</h2>
+            <form>
+                <fieldset>
+                    <legend>Datos básicos</legend>
+
+                    <ul>
+                     <li>
+                        <label for="user">Nombre de usuario</label>
+                        <input type="text" id="user" name="user" required/>
+                     </li>
+
+                     <li>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required/>
+                     </li>
+
+                     <li>
+                    <label for="birthday">Fecha de nacimiento</label>
+                    <input type="date" id="birthday" name="birthday" max="2002/1/1" required/>
+                     </li>
+
+                    </ul>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Datos personales</legend>
+
+                    <ul>
+                    <li>
+                        <ul>
+                            <li>
+                                <label for="masculino">Masculino</label>
+                                <input type="radio" id="masculino" name="genero" value="masculino"/>
+                            </li>
+                            
+                            <li>
+                                <label for="femenino">Femenino</label>
+                                <input type="radio" id="femenino" name="genero" value="femenino"/>
+                            </li>
+                            <li>
+                                <label for="otro">Otro</label>
+                                <input type="radio" id="otro" name="genero" value="otro"/>
+                            </il>
+                            </ul>
+                    </li>
+
+                    <li>
+                        <label for="provincia">Provincia:</label>
+                        <select name="provincia" id="provincia">
+                            <option value="">Selecciona...</option>
+                            <optgroup label="Las mejores">
+                                <option>A Coruña</option>
+                                <option>Lugo</option>
+                            </optgroup>
+                            <optgroup label="Las peores">
+                                <option>Ourense</option>
+                                <option>Pontevedra</option>
+                            </optgroup>
+                        </select>
+                    </li>
+
+                    <li>
+                        <label for="url">Url</label>
+                        <input type="url" id="url" name="url"/>
+                    </li>
+
+                    <li>
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" name="phone" />
+                    </li>
+
+                    <li>
+                        <label for="photo">Foto de perfil</label>
+                        <input type="file" id="photo" name="photo" accept="image/jpeg, image/gif, image/png, image/jpg" />  <!--mime types-->
+                    </li>
+                    </ul>                    
+                </fieldset>
+
+                <fieldset>
+                    <legend>Otros Datos</legend>
+
+                    <ul>
+                        <li>
+                            <label for="color">Color favorito</label>
+                            <input type="color" id="color" name="color">
+                        </li>
+
+                        <li>
+                            <label for="number">Número favorito</label>
+                            <input type="number" id="number" name="number" />
+                        </li>
+
+                        <li>
+                            <label for="emotion">Estado emocional</label>
+                            Triste<input type="range" id="emotion" name="emotion" max="100" min="-100"/>Feliz
+                            
+                        </li>
+                        
+                        <li>
+                            <label for="bio">Biografía</label>
+                            <textarea id="bio"> </textarea>
+                        </li>
+
+                        <li>
+                            <label for="pimientos">Pimientos????</label>
+                            <input type="checkbox" id="pimientos" name="pimientos" />
+
+                        </li>
+                    </ul>
+                </fieldset>
+
+                <button type="sumbit">Enviar</button> <!--{tpye="sumbir"} es el por defecto-->
+                <button type="reset">Resetear</button>
+            </form>
+        </section>
+        
+        <section id="login">
+            <h2>Login</h2>
+            <form>
+                <fieldset>
+                    <legend>Datos de Login</legend>
+                    <label for="user">User:</label>
+                    <input type="text" id="user" name="user" required placeholder="Nombre de usuario"/>
+                    
+                    <label for="pass">Pass:</label>
+                    <input type="password" id="pass" name="pass" required placeholder="Contraseña" minlength="5"/>
+                </fieldset>
+
+                <button>Enviar</button>
+            </form>
+        </section>
+        <footer>
+            <nav>
+                <a href="/otrasEtiquetas.html">Estoy aquí por las etiquetas</a>
+            </nav>
+        </footer>
+    </body>
+</html>
+
+
+<!--Get input from the user-->
