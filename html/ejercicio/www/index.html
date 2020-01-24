@@ -1,10 +1,143 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Vacas</title>
+
+  <meta name="author" content="Marco Pérez González"/>
+  <meta name="description" content="Vacas"/>
 </head>
 <body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="/">Lorem ipsum</a></li>
+        <li><a href="/">Lorem ipsum</a></li>
+        <li><a href="/">Comprar</a></li>
+      </ul>
+    </nav>
+
+    <h1>Vacas</h1>
+  </header>
+  
+  <section id="loremIpsum">
+    <h2>Lorem ipsum</h2>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Curabitur tempor diam at pellentesque laoreet. Sed dapibus
+      sem tellus, non efficitur orci molestie mollis. Morbi venenatis
+      gravida ex, eu pharetra urna volutpat at. Curabitur eget
+      faucibus magna. Integer a justo ligula. 
+    </p>
+
+    <p>
+      Nam purus nisl, blandit eget iaculis at, interdum et nulla.
+      Mauris ut ante dignissim, accumsan neque at, vulputate
+      massa. Nulla lobortis.
+    </p>
+
+    <p>
+      Nam purus nisl, blandit eget iaculis at, interdum et nulla.
+      Mauris ut ante dignissim, accumsan neque at, vulputate
+      massa. Nulla lobortis, sapien sit amet hendrerit ullamcorper,
+      risus magna venenatis elit, nec condimentum nisl massa id ex.
+      Sed fermentum orci nec erat cursus cursus. Integer bibendum
+      lacus molestie metus iaculis, ac hendrerit diam ullamcorper.
+      Mauris placerat arcu pellentesque imperdiet pellentesque.     
+    </p>
+  </section>
+
+  <section id="listaVacas">
+    <ul>
+      <li>
+        <img src="/media/vaca1.png" alt="Imagen de la vaca uno"/>
+        <h3>Vaca 1</h3>
+        <p>
+          Nulla lobortis, sapien sit amet
+          hendrerit ullamcorper, risus magna
+          venenatis elit, nec condimentum
+          nisl massa id ex. Sed fermentum
+          orci nec erat cursus cursus
+        </p>
+        <a href="/">Comprar</a>
+      </li>
+
+      <li>
+        <img src="/media/vaca2.png" alt="Imagen de la vaca dos"/>
+        <h3>Vaca 2</h3>
+        <p>
+          Nulla lobortis, sapien sit amet
+          hendrerit ullamcorper, risus magna
+          venenatis elit, nec condimentum
+          nisl massa id ex. Sed fermentum
+          orci nec erat cursus cursus
+        </p>
+        <a href="/">Comprar</a>
+      </li>
+
+      <li>
+        <img src="/media/vaca3.png" alt="Imagen de la vaca tres"/>
+        <h3>Vaca 3</h3>
+        <p>
+          Nulla lobortis, sapien sit amet
+          hendrerit ullamcorper, risus magna
+          venenatis elit, nec condimentum
+          nisl massa id ex. Sed fermentum
+          orci nec erat cursus cursus
+        </p>
+        <a href="/">Comprar</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="form">
+
+    <h2>
+      Lorem ipsum dolor sit
+      amet, consequentur
+      limites sulivan.
+    </h2>
+
+    <form>
+      <ul>
+        <li>
+          <label for="name">Nome e apelidos</label>
+          <input type="text" id="name" name="name" required/>
+        </li>
+
+        <li>
+          <label for="address">Dirreción</label>
+          <input type="text" id="address" name="address"/>
+        </li>
+
+        <li>
+          <label for="provincia">Provincia:</label>
+          <select name="provincia" id="provincia" required>
+
+            <option value="coruña">A Coruña</option>
+            <option value="lugo">Lugo</option>
+            <option value="ourense">Ourense</option>
+            <option value="pontevedra">Pontevedra</option>
+          </select>
+        </li>
+
+        <li>
+          <label for="comentarios">Comentarios</label>
+          <textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea>
+        </li>
+
+        <li>
+          <label for="newsletter">Recibir Newsletter?</label>
+          <input type="checkbox" name="newsletter" id="newsletter">
+        </li>
+      </ul>
+
+      <button>Enviar</button>
+    </form>
+  </section>
+
+  <footer>
     
+  </footer>
 </body>
 </html>
