@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Imagenes</title>
+</head>
+<body>
+    <header>
+        <h1><a href="/">Multimedia en HTML</a>: Imágenes</h1>
+
+        <nav>
+            <ul>
+                <li><a href="/ejemplosMultimedia/imagenes.html">Imágenes</a></li>
+                <li><a href="/ejemplosMultimedia/audio.html">Audio</a></li>
+                <li><a href="/ejemplosMultimedia/video.html">Vídeo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="GIF">
+        <h2>GIF</h2>
+        <p>Soportan animación, pero tienen pocos colores y pesan mucho.</p>
+        <img src="/media/img/it.gif" alt="Git de IT"/>
+    </section>
+
+    <figure>    <!--Permite indicar de manera semántica que aquí toca una imagen, permite además el uso de pie de página (figcaption)-->
+        <section id="JPG">
+            <h2>JPG</h2>
+            <p>Apropiadas para fotos de la realidad</p>
+            <img src="/media/img/landscape.jpg" alt="Foto de un paisaje"/>
+        <figcaption>As pontes 2019</figcaption>
+        </section>
+    </figure>
+
+    <section id="PNG">
+        <h2>PNG</h2>
+        <p>Soporta transferencia de canal alfa</p>
+        <img src="/media/img/elephant.png" alt="Foto de un elefante"/>
+    </section>
+
+    <section id="SVG">
+        <h2>SVG</h2>
+        <p>Son imagenes vectoriales</p>
+        <img src="/media/img/icon.svg" alt="Icono vectorial"/>
+    </section>
+
+    <footer>
+        <nav>
+            <a href="#">Subir</a> <!--Si aquí se pone la id de una sección irá hasta ella.-->
+        </nav>
+    </footer>
+</body>
+</html>
