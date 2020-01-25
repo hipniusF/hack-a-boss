@@ -1,11 +1,20 @@
 'use strict';
 
-let divisa = 'rupia';
+let operation = prompt("Ingresa tu operacióin (suma, multiplicación, división, resta, resto):")
 
-if (divisa === 'dolares') {
-  console.log('1 dolar son 0.91€');
-} else if (divisa === 'libra') {
-  console.log('1 libra son 1.19€');
-} else if (divisa === 'rupia') {
-  console.log('1 rupia son 0.013€');
+let number1 = +prompt("Ingresa tu primer número:");
+let number2 = +prompt("Ingresa tu segundo número:");
+
+if(operation === "suma") {
+  console.log(number1 + number2);
+} else if (operation === "multiplicación"){
+  console.log(number1*number2);
+} else if(operation === "división"){
+  console.log(number1/number2);
+} else if (operation === "resta"){
+  console.log(number1-number2);
+} else if (operation === "resto"){
+  console.log(number1%number2);
+} else{
+  console.log("Operación no reconocida, comprueba la sintaxis.")
 }
