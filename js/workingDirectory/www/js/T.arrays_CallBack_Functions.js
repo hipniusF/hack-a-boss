@@ -4,8 +4,6 @@ const arr = [5, 8, 7, 6, 2, 4];
 
 const increased = arr.map((value) => value + 2);
 
-console.log(increased);
-
 for (const value of arr) {
   if (value === 10) {
     break;
@@ -20,4 +18,4 @@ const reducer = (accumulator, currentValue) => {
 
 const reducedArray = arr.reduce(reducer);
 
-console.log(reducedArray);
+console.log(reducedArray, increased, greaterThanFive);
