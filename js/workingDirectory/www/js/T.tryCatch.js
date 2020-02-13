@@ -7,7 +7,7 @@ try {
 		console.log('Llega?');
 	}
 } catch (error) {
-	if ((error = 'Under age')) {
+	if (error === 'Under age') {
 		workerAge = 18;
 	}
 } finally {
