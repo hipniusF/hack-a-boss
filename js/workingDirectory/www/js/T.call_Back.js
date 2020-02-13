@@ -1,16 +1,16 @@
 'use strict';
 
 function upperCaseEcho(message) {
-  console.log(message.toUpperCase());
+	console.log(message.toUpperCase());
 }
 
 function lowerCaseEcho(message) {
-  console.log(message.toLowerCase());
+	console.log(message.toLowerCase());
 }
 
 function changeCase(caseFunction) {
-  const message = 'AsageasvCbdbcDcEe';
-  caseFunction(message);
+	const message = 'AsageasvCbdbcDcEe';
+	caseFunction(message);
 }
 
 changeCase(upperCaseEcho);

@@ -1,47 +1,47 @@
 'use strict';
 
 class Animals {
-  name;
-  legs;
+	name;
+	legs;
 
-  constructor(name, legs) {
-    this.name = name;
-    this.legs = legs;
-  }
+	constructor(name, legs) {
+		this.name = name;
+		this.legs = legs;
+	}
 
-  sound() {
-    console.log('...');
-  }
+	sound() {
+		console.log('...');
+	}
 }
 
 class Dog extends Animals {
-  constructor(name, legs) {
-    super(name, legs);
-  }
+	constructor(name, legs) {
+		super(name, legs);
+	}
 
-  sound() {
-    console.log('GUAU GUAUGU');
-  }
+	sound() {
+		console.log('GUAU GUAUGU');
+	}
 }
 
 class Cat extends Animals {
-  constructor(name, legs) {
-    super(name, legs);
-  }
+	constructor(name, legs) {
+		super(name, legs);
+	}
 
-  sound() {
-    console.log('miau miau');
-  }
+	sound() {
+		console.log('miau miau');
+	}
 }
 
 class Spider extends Animals {
-  constructor(name, legs) {
-    super(name, legs);
-  }
+	constructor(name, legs) {
+		super(name, legs);
+	}
 
-  sound() {
-    console.log('');
-  }
+	sound() {
+		console.log('');
+	}
 }
 
 const myDog = new Dog('boby', 4);

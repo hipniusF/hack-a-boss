@@ -22,9 +22,9 @@
 // console.log(badFactorial(5);
 
 function fib(numberToFib) {
-  if (numberToFib <= 1) {
-    return numberToFib;
-  }
-  return fib(numberToFib - 1) + fib(numberToFib - 2);
+	if (numberToFib <= 1) {
+		return numberToFib;
+	}
+	return fib(numberToFib - 1) + fib(numberToFib - 2);
 }
 console.log(fib(87));
