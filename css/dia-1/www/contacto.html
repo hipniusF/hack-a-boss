@@ -3,7 +3,9 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>CSS</title>
+		<title>Mi sitio web: contacto</title>
+
+		<link rel="stylesheet" href="/css/styles.css" />
 	</head>
 	<body>
 		<header>
@@ -11,16 +13,37 @@
 			<nav>
 				<ul>
 					<li><a href="/">Portada</a></li>
+					<li><a href="/links.html">Enlaces</a></li>
 				</ul>
 			</nav>
 		</header>
 
 		<section>
 			<h2>Contacto</h2>
+			<p id="texto-principal">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi vero, tempore dignissimos fugiat et eveniet
+				tempora? Consequuntur, dolorum, totam, amet est numquam labore tempore explicabo id laudantium nihil iusto
+				debitis.
+			</p>
 			<address>
+				<p class="name">Marco Pérez</p>
 				<p>Urb. Los Castillos</p>
 				<p>Salamanca</p>
+				<p>Parapicultor</p>
+				<p>Lorem, ipsum.</p>
+				<p>Lorem, ipsum dolor.</p>
 			</address>
 		</section>
+
+		<form action="">
+			<fieldset>
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name" />
+
+				<label for="mail">Mail</label>
+				<input type="email" name="mail" id="mail" required />
+			</fieldset>
+			<button>Enviar</button>
+		</form>
 	</body>
 </html>

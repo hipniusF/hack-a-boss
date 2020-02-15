@@ -1,0 +1,72 @@
+/* Pseudo-elementos */
+
+p::first-letter {
+	font-size: 40px;
+	background: black;
+	color: white;
+}
+
+p::first-line {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+p::selection {
+	background-color: yellow;
+}
+
+ul::before {
+	content: '>>';
+	background: red;
+}
+
+ul::after {
+	content: '<<';
+	background: green;
+}
+
+a[href^='http']::after {
+	content: '➡';
+	vertical-align: middle;
+	font-size: 25px;
+}
+
+/* 
+		#externo {} === [id="externo"] {}
+*/
+
+p#principal.especial.importante:first-child:hover::first-letter {
+	font-size: 30px;
+	font-weight: bold;
+	color: pink;
+}
+
+p.especial,
+strong.importante {
+	color: blue;
+}
+
+p strong {
+	background: yellow;
+	color: green;
+}
+
+/* Descendientes */
+header nav a,
+p strong {
+	font-size: 30px;
+}
+
+/* Descencientes directos */
+section _ > h2 {
+	border-bottom: gray;
+}
+
+/* Selectores adyantes*/
+article.demo h2 + p {
+	background: lightblue;
+}
+
+article.demo h2 ~ address {
+	background: lightcoral;
+}

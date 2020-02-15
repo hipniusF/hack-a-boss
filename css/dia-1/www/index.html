@@ -3,26 +3,53 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>CSS</title>
+		<title>Mi sitio web: Portada</title>
+
+		<link rel="stylesheet" href="/css/styles.css" />
+
+		<style>
+			h2 {
+				color: goldenrod;
+			}
+			p {
+				font-style: italic;
+			}
+		</style>
 	</head>
 	<body>
 		<header>
-			<h1>Mi sitio web</h1>
+			<h1 style="background:rebeccapurple; color:gold">Mi sitio web</h1>
 			<nav>
 				<ul>
 					<li><a href="/contacto.html">Contacto</a></li>
+					<li><a href="/links.html">Enlaces</a></li>
+					<li><a href="/noticias.html">Noticias</a></li>
 				</ul>
 			</nav>
 		</header>
 
 		<section>
 			<h2>Sobre mí</h2>
-			<p>
-				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi magnam
-				natus, eveniet quas praesentium deserunt tempora mollitia dolores? Quod
-				cupiditate doloremque, sunt libero ab nisi ipsa sed vel dolorum
-				doloribus!
+			<p id="texto-principal">
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi magnam natus, eveniet quas praesentium deserunt
+				tempora mollitia dolores? Quod cupiditate doloremque, sunt libero ab nisi ipsa sed vel dolorum doloribus!
+			</p>
+
+			<h2>Curriculum</h2>
+			<p class="secundario especial">
+				Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi magnam natus, eveniet quas praesentium deserunt
+				tempora mollitia dolores? Quod cupiditate doloremque, sunt libero ab nisi ipsa sed vel dolorum doloribus!
+			</p>
+
+			<h2>Experiencia</h2>
+			<p class="especial">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nostrum quibusdam nesciunt fugiat, praesentium
+				dolorum repellat vero. Consectetur fugit dolores tempore maiores accusamus facere, neque omnis veniam illum
+				alias qui?
 			</p>
 		</section>
+
+		<h2 style="color: brown">Foto de mí</h2>
+		<p>Aquí la foto</p>
 	</body>
 </html>

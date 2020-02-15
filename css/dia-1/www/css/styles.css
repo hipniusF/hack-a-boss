@@ -1,0 +1,106 @@
+/* SELECTORES SIMPLES */
+
+/* Por etiqueta */
+a {
+	background-color: black;
+	color: white;
+}
+
+address {
+	border: 3px solid blue;
+}
+
+p {
+	font-family: sans-serif;
+}
+
+/* Por id */
+#texto-principal {
+	font-size: 20px;
+	text-decoration: underline;
+}
+
+/* Por clase */
+.secundario {
+	background: lightgray;
+}
+.especial {
+	color: red;
+}
+
+/* Por atributo */
+[title] {
+	text-decoration: overline;
+}
+
+[data-important] {
+	border: 5px solid pink;
+}
+
+[data-important='10'] {
+	font-size: 30px;
+}
+
+[data-important='5'] {
+	font-size: 20px;
+}
+
+[data-type^⁼'We'] {
+	border: 3px solid green;
+}
+
+[data-type$='cia'] {
+	border: 3px solid orange;
+}
+
+[data-type*='e'] {
+	border: 3px solid blue;
+}
+
+[href^='http'] {
+	border: 5px solid red;
+}
+
+/* * {
+	border: 2px solid purple;
+} */
+
+/* Por Pseudo-clases*/
+
+:hover {
+	border: 1px solid green;
+}
+
+p:first-child {
+	font-weight: bold;
+	border-top: 4px solid red;
+}
+
+p:last-child {
+	border-bottom: 4px solid pink;
+}
+
+p:nth-child(3n) {
+	background: black;
+	color: white;
+}
+
+p:not(.name) {
+	color: green;
+}
+
+input {
+	border: 1px solid black;
+}
+
+input:required {
+	background: pink;
+}
+
+input:invalid {
+	border: 4px solid red;
+}
+
+input:valid {
+	border: 4px solid green;
+}
