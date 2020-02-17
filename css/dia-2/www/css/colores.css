@@ -1,0 +1,12 @@
+header h2.Names {
+	background: cornflowerblue;
+}
+
+header h2.Hexadecimal {
+	background: #ffff00;
+}
+
+header h2.RGB {
+	background: rgb(159, 165, 177);
+	background: rgb(65, 90, 139, 0.5); /*Canal Alfa*/
+}

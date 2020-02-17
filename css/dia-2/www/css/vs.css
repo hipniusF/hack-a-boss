@@ -1,0 +1,16 @@
+section#vs h1 {
+	background: lightseagreen;
+}
+
+section#vs {
+	/* 100 vh es la altura del viewport */
+	/* 100 vw es la anchura del viewport */
+
+	background: steelblue;
+	height: 50vh;
+	width: 50vw;
+}
+
+section#vs span {
+	background: orangered;
+}

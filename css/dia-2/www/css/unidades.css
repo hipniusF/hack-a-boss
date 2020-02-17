@@ -1,0 +1,33 @@
+section#pixeles h2 {
+	background: purple;
+	color: gold;
+
+	width: 500px;
+	margin: 10px;
+	padding: 20px;
+	border: 2px solid black;
+}
+
+section#em h2 {
+	/*Un 'em' es el tamaño de la fuente en el elemento que se aplica*/
+
+	font-size: 20px;
+	width: 10em;
+	background: lightgray;
+	padding: 1em;
+}
+
+section#rem h2 {
+	/*Un 'rem' equivale al tamaño de la fuente de la etiqueta html (16px por defecto) */
+
+	background: lightblue;
+	padding: 1rem;
+	font-size: 2rem;
+}
+
+section#percent h2 {
+	font-size: 200%;
+	margin: 0;
+	/* valores sin unidad */
+	line-height: 2;
+}
