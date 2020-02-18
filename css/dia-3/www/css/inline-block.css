@@ -1,0 +1,54 @@
+header {
+	border: 2px solid red;
+}
+
+p {
+	border: 2px solid green;
+}
+
+header h1,
+header h2 {
+	border: 2px solid black;
+	display: inline;
+}
+
+p em {
+	border: 2px solid blue;
+	display: block;
+}
+
+p.example {
+	width: 400px;
+	height: 300px;
+}
+
+p.example strong {
+	background: black;
+	color: white;
+	margin: 20px 20px; /* margin arriba y abajo no, lados si*/
+	width: 2000px; /*No va, obviamente*/
+	height: 200px; /*No va, obviamente*/
+	padding: 4px; /*Va, pero tapa elementos, no desplaza*/
+	border: 2px solid red;
+}
+
+p.example a {
+	background: blueviolet;
+	color: white;
+	display: inline-block;
+	height: 50px;
+	width: 60px;
+	margin: 10px;
+	padding: 10px;
+}
+
+p.links {
+	background: goldenrod;
+	text-align: center;
+}
+
+p.links a {
+	display: inline-block;
+	background: lightblue;
+	padding: 0.5rem 1rem;
+}

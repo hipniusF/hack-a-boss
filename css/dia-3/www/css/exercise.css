@@ -1,0 +1,27 @@
+body {
+	background: lightgray;
+}
+
+header {
+	font-family: sans-serif;
+	margin: auto;
+	padding: 2rem;
+}
+
+article {
+	background: white;
+	margin: 0 auto;
+	min-width: 600px;
+	max-width: 1000px;
+}
+
+article img {
+	display: block;
+	margin: 0 auto;
+	width: 75vw;
+
+	height: 75vh;
+	min-width: 600px;
+	max-width: 1000px;
+	background-image: url('/media/image.jpg');
+}

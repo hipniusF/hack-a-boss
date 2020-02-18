@@ -1,0 +1,21 @@
+body {
+	min-height: 100vh;
+	margin: 0;
+	background-color: rebeccapurple;
+	background-image: url(https://source.unsplash.com/random);
+	background-repeat: no-repeat;
+	background-position: auto center;
+	background-size: 400px 400px;
+	background-size: cover;
+	/* background-size: contain; */
+}
+
+p {
+	width: 50%;
+	min-width: 300px;
+	background: white;
+	margin: 2rem 0 0 2rem;
+	padding: 1rem;
+	box-shadow: 2px 2px 5px black;
+	border-radius: 10px;
+}
