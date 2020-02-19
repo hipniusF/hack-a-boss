@@ -1,0 +1,107 @@
+html {
+	padding: 0;
+	background-image: url(/media/background.png);
+}
+
+body {
+	background: white;
+	margin: 0 auto;
+	padding: 0 auto;
+	font-family: sans-serif;
+
+	max-width: 900px;
+	padding: 0 auto;
+}
+
+header {
+	margin: 0;
+	padding: 2rem;
+	background: rgb(56, 52, 52);
+	text-align: center;
+
+	position: relative;
+}
+
+header h1 {
+	margin: 1rem;
+	text-decoration: underline;
+	color: white;
+	font-weight: bold;
+}
+
+header h2 {
+	color: white;
+}
+
+header section.DownloadButton {
+	background: white;
+	padding: 0 auto;
+	margin: auto;
+	width: 150px;
+	height: 50px;
+}
+
+header section.DownloadButton p {
+	padding: 0;
+	margin: 0;
+}
+
+header section.DownloadButton p:first-of-type {
+	font-weight: bold;
+	font-size: 1.2rem;
+}
+
+header section.award {
+	text-decoration: underline;
+	background: lightblue;
+	font-size: 0.5rem;
+	padding: 0rem;
+
+	position: absolute;
+	bottom: 1rem;
+	right: 0;
+
+	width: 5rem;
+	height: 5rem;
+}
+
+header section.award p:first-child {
+	font-weight: bold;
+}
+
+header section.award p {
+	padding: 0.1rem;
+}
+
+section.introduction p {
+	font-weight: bold;
+	text-align: center;
+	padding: 0 auto;
+	margin: 1rem;
+}
+
+section.main p {
+	margin: 0 1rem;
+}
+
+section img {
+	width: 100%;
+	object-fit: contain;
+}
+
+footer {
+	background: lightgray;
+	height: 100px;
+}
+
+footer p {
+	text-decoration: underline;
+	text-align: center;
+	padding: auto;
+}
+
+@media (min-width: 400px) {
+	section.main {
+		columns: 2;
+	}
+}

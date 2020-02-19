@@ -1,0 +1,42 @@
+body {
+	font-family: sans-serif;
+	min-height: 200vh;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	position: relative;
+}
+
+ul li {
+	font-size: 1.5rem;
+	padding: 2rem 4rem;
+	margin: 0.5rem 0;
+	background: lightcyan;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+li.one {
+	background: lightpink;
+	position: relative;
+	/* top, right, //////bottom, left//// */
+	top: 2rem;
+	right: -2rem;
+	z-index: 1;
+}
+
+li.two {
+	background: lightseagreen;
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	z-index: 2;
+}
+
+li.three {
+	background: lightsalmon;
+	position: fixed;
+	bottom: 1rem;
+	right: 1rem;
+}

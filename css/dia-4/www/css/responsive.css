@@ -1,0 +1,50 @@
+body {
+	font-family: sans-serif;
+	margin: 0;
+}
+
+header.main {
+	background: black;
+	color: white;
+	text-align: center;
+	padding: 1rem;
+}
+
+section {
+	margin: 1rem;
+	width: 100%;
+}
+
+figure img {
+	margin: 1rem auto;
+	width: 100%;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+@media (min-width: 600px) {
+	html {
+		font-size: 20px;
+	}
+
+	section p {
+		columns: 2;
+	}
+}
+
+@media (min-width: 1000px) {
+	section {
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	header h2 {
+		position: absolute;
+		top: 0;
+		right: 10%;
+		background: yellow;
+		color: black;
+		padding: 1rem;
+		margin: 0;
+	}
+}
