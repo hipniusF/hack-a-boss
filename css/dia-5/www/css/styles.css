@@ -1,0 +1,39 @@
+ul.flex {
+	background: lightblue;
+	list-style: none;
+	padding: 1rem;
+	font-family: sans-serif;
+	font-size: 1.5rem;
+	height: 75vh;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: space-around;
+}
+
+ul.flex li {
+	background: rebeccapurple;
+	color: gold;
+	padding: 1rem;
+	border: 1px solid gold;
+}
+
+ul.flex li.prodigo {
+	height: 100px;
+	background: lightcoral;
+	flex-basis: 50%;
+}
+
+ul.flex li.old_master {
+	background: steelblue;
+	order: 1;
+}
+
+ul.flex li.a3 {
+	background: #fabada;
+	color: black;
+	flex-grow: 1;
+}

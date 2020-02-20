@@ -1,0 +1,53 @@
+html {
+	font-family: sans-serif;
+}
+
+header {
+	background: black;
+	height: 2.5rem;
+}
+
+header nav.redes ul {
+	color: white;
+	right: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	display: flex;
+	justify-content: flex-end;
+}
+
+nav.redes ul li a {
+	color: white;
+	text-decoration: none;
+}
+
+main {
+	display: flex;
+
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+main section {
+	font-size: 1.3rem;
+	margin: 1rem;
+	width: 30%;
+}
+
+main section.introduction {
+	/* font-size: 1.5rem; */
+}
+
+main section.introduction figure img {
+	border-radius: 100%;
+	border: 0.5rem solid black;
+	height: 12rem;
+}
+
+@media (max-width: 500px) {
+	main section {
+		width: 20rem;
+	}
+}
