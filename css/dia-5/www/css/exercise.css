@@ -12,20 +12,21 @@ header nav.redes ul {
 	right: 0;
 	list-style: none;
 	margin: 0;
-	padding: 0;
-
+	position: relative;
+	top: 0.5rem;
 	display: flex;
 	justify-content: flex-end;
 }
 
 nav.redes ul li a {
 	color: white;
+	background: none;
 	text-decoration: none;
+	margin: 0.1rem;
 }
 
 main {
 	display: flex;
-
 	flex-wrap: wrap;
 	justify-content: center;
 }
@@ -37,7 +38,20 @@ main section {
 }
 
 main section.introduction {
-	/* font-size: 1.5rem; */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+main section.introduction h1 {
+	margin: 1rem;
+	font-size: 3rem;
+	text-align: right;
+}
+
+main section.introduction h2 {
+	margin: 0.25rem;
+	text-align: right;
 }
 
 main section.introduction figure img {
@@ -46,8 +60,32 @@ main section.introduction figure img {
 	height: 12rem;
 }
 
+a {
+	background: rgb(90, 101, 197);
+	padding: 1rem 1.5rem;
+	color: white;
+	text-decoration: none;
+}
+
+main section.textExtendido {
+	flex-grow: 1;
+}
+
+main section figure {
+	margin: 0;
+}
+
+main section figure img {
+	object-fit: cover;
+	width: 100%;
+}
+
 @media (max-width: 500px) {
 	main section {
 		width: 20rem;
+	}
+
+	main section.introduction h2 {
+		font-size: 1rem;
 	}
 }
