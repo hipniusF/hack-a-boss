@@ -9,7 +9,7 @@ body {
 	padding: 0 auto;
 	font-family: sans-serif;
 
-	max-width: 900px;
+	max-width: 1000px;
 	padding: 0 auto;
 }
 
@@ -34,7 +34,7 @@ header h2 {
 }
 
 header section.DownloadButton {
-	background: white;
+	background: rgb(170, 157, 157);
 	padding: 0 auto;
 	margin: auto;
 	width: 150px;
@@ -87,6 +87,7 @@ section.main p {
 section img {
 	width: 100%;
 	object-fit: contain;
+	margin-bottom: 0.5rem;
 }
 
 footer {
@@ -98,10 +99,19 @@ footer p {
 	text-decoration: underline;
 	text-align: center;
 	padding: auto;
+	position: relative;
+	top: 3rem;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 800px) {
 	section.main {
 		columns: 2;
+	}
+
+	header section.award {
+		font-size: 0.65rem;
+
+		width: 6rem;
+		height: 6rem;
 	}
 }
