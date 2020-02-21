@@ -2,18 +2,22 @@ html {
 	font-family: sans-serif;
 }
 
+body {
+	margin: 0;
+}
+
 header {
 	background: black;
 	height: 2.5rem;
 }
 
 header nav.redes ul {
-	color: white;
-	right: 0;
 	list-style: none;
-	margin: 0;
 	position: relative;
-	top: 0.5rem;
+	right: 0;
+	top: 0.7rem;
+
+	margin: 0;
 	display: flex;
 	justify-content: flex-end;
 }
@@ -63,8 +67,13 @@ main section.introduction figure img {
 a {
 	background: rgb(90, 101, 197);
 	padding: 1rem 1.5rem;
+	margin: 0.5rem;
 	color: white;
 	text-decoration: none;
+}
+
+main section.sobreMi h1 {
+	font-size: 6rem;
 }
 
 main section.textExtendido {
@@ -86,6 +95,10 @@ main section figure img {
 	}
 
 	main section.introduction h2 {
-		font-size: 1rem;
+		font-size: 1.5rem;
+	}
+
+	main section p {
+		font-size: 1.2rem;
 	}
 }
