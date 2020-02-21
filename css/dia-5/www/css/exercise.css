@@ -13,10 +13,7 @@ header {
 
 header nav.redes ul {
 	list-style: none;
-	position: relative;
-	right: 0;
-	top: 0.7rem;
-
+	padding: 1rem;
 	margin: 0;
 	display: flex;
 	justify-content: flex-end;
@@ -59,7 +56,7 @@ main section.introduction h2 {
 }
 
 main section.introduction figure img {
-	border-radius: 100%;
+	border-radius: 50%;
 	border: 0.5rem solid black;
 	height: 12rem;
 }
