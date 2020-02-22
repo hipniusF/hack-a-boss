@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Roboto, sans-serif;
+}
+
+main {
+	display: grid;
+	grid-template-rows: 1fr 3fr 2fr 1fr;
+	grid-template-areas:
+		'header'
+		'main'
+		'links'
+		'footer';
+}
+
+header {
+	background: #2d9cdb;
+	grid-area: header;
+}
+
+header h1 {
+	color: white;
+	text-align: center;
+	margin: 2rem auto 0;
+	font-size: 2.5rem;
+}
+
+header nav ul,
+footer nav ul {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+}
+
+header nav ul li a,
+footer nav ul li a {
+	color: black;
+	text-decoration: none;
+	margin: 1rem 0;
+	padding: 0 1rem;
+}
+
+header nav ul li,
+footer nav ul li {
+	margin-top: 0.5rem;
+	border-left: 1px solid black;
+}
+
+main header nav ul li:first-child,
+main footer nav ul li:first-child {
+	border-left: 0px solid black;
+}
+
+section.main {
+	padding: 1.5rem;
+	grid-area: main;
+}
+
+section.main p {
+	padding: 1rem 0;
+}
+
+section.links {
+	background: #27ae60;
+	grid-area: links;
+}
+
+section.links h2 {
+	color: white;
+	margin: 1rem;
+}
+
+section.links nav ul {
+	list-style: none;
+	margin: 1rem 0 1rem;
+	display: grid;
+	gap: 1rem;
+	grid-auto-rows: 100px;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+section.links nav ul li {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+
+section.links nav ul li a {
+	display: block;
+	width: 100px;
+	height: 100px;
+	color: white;
+	text-decoration: none;
+	padding-top: 4.8rem;
+	text-align: center;
+
+	background-image: url('/img/logo.png');
+	background-repeat: no-repeat;
+	background-size: 75px 75px;
+	background-position: top;
+}
+
+footer {
+	background: #c4c4c4;
+	grid-area: footer;
+}
+
+footer p {
+	font-weight: bold;
+	text-align: center;
+	margin: 2rem 0 0.75rem;
+}
+
+@media (min-width: 500px) {
+	main {
+		grid-template-rows: 3fr 1fr 1fr;
+		grid-auto-columns: 15rem 1fr;
+		grid-template-areas:
+			'header main'
+			'header links'
+			'header footer';
+	}
+
+	main header h1 {
+		text-align: end;
+		font-size: 4rem;
+		margin: 1rem 1rem 1rem 0;
+	}
+
+	main header nav ul {
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	main header nav ul li {
+		border-left: 0;
+	}
+
+	main header nav ul li a {
+		color: white;
+		font-size: 1.3rem;
+	}
+}
+
+@media (min-width: 1000px) {
+	main {
+		grid-template-columns: 1fr 3fr 1fr;
+		grid-template-rows: 80vh 20vh;
+		grid-template-areas:
+			'header main links'
+			'header footer links';
+	}
+}

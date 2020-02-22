@@ -1,0 +1,27 @@
+@import 'generic.css';
+
+ul.container {
+	display: grid;
+	height: 100vh;
+	gap: 1rem;
+	grid-template-columns: repeat(4, 1fr);
+	/* grid-template-columns: repeat(auto-fit, minmax(10rem, 30rem)); */
+	grid-auto-rows: 10rem;
+	/* grid-auto-flow: row; */
+	/* grid-auto-columns: 300px; */
+	/* grid-auto-flow: dense; */
+
+	justify-items: start;
+	align-items: center;
+	justify-content: end;
+	align-content: end;
+	/* place-items: start center; */
+}
+
+ul li.item7 {
+	background: #fabada;
+	color: black;
+	/* grid-column: 1 / -1; */
+	justify-self: end;
+	align-self: end;
+}
