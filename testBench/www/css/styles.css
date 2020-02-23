@@ -1,0 +1,49 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+header {
+	margin: 0;
+	padding: 1rem;
+
+	background-image: url('/media/background.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 50rem;
+	width: 100%;
+}
+
+header ul {
+	list-style: none;
+	padding: 0;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+header nav li a {
+	margin: 0.5rem;
+	color: black;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+header ul li h1 {
+	color: white;
+	font-size: 5rem;
+	font-weight: bold;
+}
+
+header a.buy {
+	color: white;
+	background: black;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 1rem 1.5rem;
+}
