@@ -5,6 +5,16 @@
 	font-family: sans-serif;
 }
 
+html {
+	max-width: 1300px;
+	margin: auto;
+	background: grey;
+}
+
+body {
+	background: #f2994a;
+}
+
 header {
 	margin: 0;
 	padding: 1rem;
@@ -19,7 +29,6 @@ header {
 
 header ul {
 	list-style: none;
-	padding: 0;
 
 	display: flex;
 	flex-wrap: wrap;
@@ -40,10 +49,138 @@ header ul li h1 {
 	font-weight: bold;
 }
 
-header a.buy {
+header a.cta {
 	color: white;
 	background: black;
 	font-weight: bold;
 	text-decoration: none;
 	padding: 1rem 1.5rem;
+}
+
+section#loremIpsum {
+	margin: 4rem 1rem;
+}
+
+section#loremIpsum p {
+	columns: 2;
+	margin: 1rem;
+}
+
+section#loremIpsum h2 {
+	color: white;
+	font-size: 4rem;
+	font-weight: 900;
+	margin: 1rem;
+}
+
+section#loremIpsum p {
+	padding: 0.5rem;
+}
+
+section#listaVacas ul {
+	margin: 5rem 0;
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+section#listaVacas ul li {
+	background: black;
+	color: white;
+	width: 380px;
+	margin: 1rem;
+}
+
+section#listaVacas ul li img {
+	width: 380px;
+	height: 386px;
+}
+
+section#listaVacas ul li h3 {
+	font-size: 5rem;
+	text-align: center;
+	margin: 0.75rem;
+}
+
+section#listaVacas ul li p {
+	font-weight: bold;
+	margin: 2rem 1rem 4rem 1rem;
+	padding: 0.5rem;
+}
+
+section#listaVacas ul li a {
+	padding: 1.2rem;
+	display: block;
+	color: black;
+	background: #c4c4c4;
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+}
+
+section#form {
+	background: white;
+}
+
+section#form h2 {
+	font-size: 4rem;
+	color: #f2994a;
+	padding: 2rem;
+}
+
+section#form form fieldset {
+	border: 0;
+}
+
+section#form form fieldset label {
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+section#form form fieldset ul {
+	list-style: none;
+	margin: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+section#form form fieldset ul li {
+	padding: 1rem;
+}
+
+section#form form fieldset ul li.basicInputs {
+	flex-basis: 50%;
+}
+section#form form fieldset ul li.basicInputs input,
+select {
+	display: block;
+	padding: 0.5rem;
+	width: 100%;
+	border: 1px solid black;
+	background: #f2994a;
+}
+
+section#form form fieldset ul li.textarea {
+	flex-basis: 100%;
+}
+
+section#form form fieldset ul li textarea {
+	display: block;
+	border: 1px solid black;
+	width: 100%;
+	background: #f2994a;
+}
+
+section#form button {
+	padding: 0.5rem 3rem;
+	margin: 2rem 0 3rem 2rem;
+	background: black;
+	color: white;
+	font-weight: bold;
+	border: 0;
+}
+
+footer {
+	height: 10rem;
 }

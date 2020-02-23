@@ -21,7 +21,7 @@
 					</nav>
 				</li>
 				<li><h1>Vacas</h1></li>
-				<li><a href="/" class="buy">Comprar</a></li>
+				<li><a href="/" class="cta">Comprar</a></li>
 			</ul>
 		</header>
 
@@ -30,19 +30,16 @@
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tempor diam at pellentesque laoreet. Sed
 				dapibus sem tellus, non efficitur orci molestie mollis. Morbi venenatis gravida ex, eu pharetra urna volutpat
-				at. Curabitur eget faucibus magna. Integer a justo ligula.
-			</p>
-
-			<p>
-				Nam purus nisl, blandit eget iaculis at, interdum et nulla. Mauris ut ante dignissim, accumsan neque at,
-				vulputate massa. Nulla lobortis.
-			</p>
-
-			<p>
-				Nam purus nisl, blandit eget iaculis at, interdum et nulla. Mauris ut ante dignissim, accumsan neque at,
-				vulputate massa. Nulla lobortis, sapien sit amet hendrerit ullamcorper, risus magna venenatis elit, nec
-				condimentum nisl massa id ex. Sed fermentum orci nec erat cursus cursus. Integer bibendum lacus molestie metus
-				iaculis, ac hendrerit diam ullamcorper. Mauris placerat arcu pellentesque imperdiet pellentesque.
+				at. Curabitur eget faucibus magna. Integer a justo ligula. Nam purus nisl, blandit eget iaculis at, interdum et
+				nulla. Mauris ut ante dignissim, accumsan neque at, vulputate massa. Nulla lobortis. Nam purus nisl, blandit
+				eget iaculis at, interdum et nulla. Mauris ut ante dignissim, accumsan neque at, vulputate massa. Nulla
+				lobortis, sapien sit amet hendrerit ullamcorper, risus magna venenatis elit, nec condimentum nisl massa id ex.
+				Sed fermentum orci nec erat cursus cursus. Integer bibendum lacus molestie metus iaculis, ac hendrerit diam
+				ullamcorper. Mauris placerat arcu pellentesque imperdiet pellentesque. Lorem ipsum, dolor sit amet consectetur
+				adipisicing elit. Ipsam, est. Amet nisi architecto ratione ex minima. Beatae natus cupiditate dolore a deserunt,
+				dolor ab! Corrupti est voluptate expedita explicabo dignissimos! Lorem ipsum dolor sit amet, consectetur
+				adipisicing elit. Qui sit, fugit consectetur esse eum eius maxime velit ducimus sunt! Perspiciatis, atque
+				distinctio rerum possimus similique quod odio consequatur repellat fugiat?
 			</p>
 		</section>
 
@@ -88,17 +85,17 @@
 			<form>
 				<fieldset>
 					<ul>
-						<li>
+						<li class="basicInputs">
 							<label for="name">Nome e apelidos</label>
 							<input type="text" id="name" name="name" required />
 						</li>
 
-						<li>
+						<li class="basicInputs">
 							<label for="address">Dirreción</label>
 							<input type="text" id="address" name="address" />
 						</li>
 
-						<li>
+						<li class="basicInputs">
 							<label for="provincia">Provincia:</label>
 							<select name="provincia" id="provincia" required>
 								<option value="coruña">A Coruña</option>
@@ -108,7 +105,7 @@
 							</select>
 						</li>
 
-						<li>
+						<li class="textarea">
 							<label for="comentarios">Comentarios</label>
 							<textarea name="comentarios" id="comentarios" cols="30" rows="10"></textarea>
 						</li>
@@ -119,6 +116,7 @@
 						</li>
 					</ul>
 				</fieldset>
+
 				<button>Enviar</button>
 			</form>
 		</section>
