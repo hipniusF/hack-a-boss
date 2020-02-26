@@ -1,0 +1,21 @@
+ul {
+	min-height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul li:first-child {
+	transform: translate(-100rem, -100rem);
+}
+
+ul li {
+	background: gold;
+	padding: 1rem;
+}
+
+body.visible ul li:first-child {
+	transform: translate(100rem, 100rem);
+}
