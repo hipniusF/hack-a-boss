@@ -1,0 +1,25 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+table tr:first-of-type {
+	border: 1px black;
+	color: black;
+	text-transform: uppercase;
+}
+
+table tr:not(:first-of-type) {
+	font-weight: normal;
+	font-size: 0.75rem;
+}
+
+table tr th.large {
+	color: gold;
+}
+
+table tr th.small {
+	color: rebeccapurple;
+}

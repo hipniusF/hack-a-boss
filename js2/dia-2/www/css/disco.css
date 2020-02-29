@@ -1,0 +1,20 @@
+html {
+	background: grey;
+	width: 100%;
+	min-height: 100vh;
+}
+
+ul {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	display: grid;
+	grid-gap: 0.5rem;
+	grid-template-columns: repeat(6, 5rem);
+}
+
+li {
+	background: gold;
+	width: 5rem;
+	height: 5rem;
+}
