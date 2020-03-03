@@ -12,68 +12,48 @@ const tableData = {
 	]
 };
 
-function markLargest(thArray) {
-	let biggerToNow = [0, null];
-
+function mark(thArray) {
+	console.log(Math.min(thArray));
 	for (const th of thArray) {
 		const number = th.textContent;
-
-		if (number > biggerToNow[0]) {
-			biggerToNow[0] = number;
-			biggerToNow[1] = th;
-		}
 	}
-	biggerToNow[1].classList.add('large');
 }
 
-function markSmallest(thArray) {
-	let biggerToNow = [Infinity, null];
-
-	for (const th of thArray) {
-		const number = th.textContent;
-
-		if (number < biggerToNow[0]) {
-			biggerToNow[0] = number;
-			biggerToNow[1] = th;
-		}
+function markAllRows(table) {
+	for (let i = 3; i < table.children.length + 1; i++) {
+		let tableRow = table.querySelectorAll(`tr:nth-child(${i}) th`);
+		mark(tableRow);
 	}
-	biggerToNow[1].classList.add('small');
+	return table;
 }
 
-function generateHeaderRow(data) {
+function generateRow(data) {
 	const headerRow = document.createElement('tr');
 	for (const item of data) {
 		const th = document.createElement('th');
 		th.textContent = item;
 		headerRow.append(th);
 	}
-
 	return headerRow;
 }
 
 function buildTable() {
-	//Create table
-	const section = document.querySelector('#table');
 	const table = document.createElement('table');
 
-	//Create caption
 	const caption = document.createElement('caption');
 	caption.textContent = tableData.caption;
 	table.append(caption);
 
-	//Create firstRow
-	table.append(generateHeaderRow(tableData.columns));
+	table.append(generateRow(tableData.columns));
 
 	//Create dataRows
 	for (const item of tableData.data) {
-		table.append(generateHeaderRow(item));
+		table.append(generateRow(item));
 	}
-	section.append(table);
+	return table;
 }
 
-buildTable();
-for (let i = 3; i < 8; i++) {
-	const thArray = document.querySelectorAll(`tr:nth-child(${i}) th`);
-	markLargest(thArray);
-	markSmallest(thArray);
-}
+const section = document.querySelector('#table');
+const tableTemplate = buildTable();
+const tableColored = markAllRows(tableTemplate);
+const table = section.append(tableColored);
