@@ -1,0 +1,89 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap");
+
+body {
+  font-family: Roboto, sans-serif;
+  background-color: #f2a54a;
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body > header h1 {
+  font-size: 5rem;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+main > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+main > ul > li {
+  margin: 1rem;
+}
+
+/* Fichas */
+
+article {
+  background: white;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
+}
+
+article header {
+  text-align: center;
+  color: black;
+  padding: 2rem 0;
+}
+
+article header img {
+  border-radius: 50%;
+}
+
+article header ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+article header ul li a {
+  margin: 0 0.5rem;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 0;
+}
+
+a.facebook {
+  background-image: url("/img/icons/facebook.svg");
+}
+
+a.twitter {
+  background-image: url("/img/icons/twitter.svg");
+}
+
+a.linkedin {
+  background-image: url("/img/icons/linkedin.svg");
+}
+
+a.instagram {
+  background-image: url("/img/icons/instagram.svg");
+}
+
+article p {
+  background-color: #7000ff;
+  margin: 0;
+  padding: 1rem;
+}
+
+@media (min-width: 1000px) {
+  main > ul > li {
+    max-width: 300px;
+  }
+}
