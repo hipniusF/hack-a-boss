@@ -1,7 +1,7 @@
 'use strict';
 const url = 'https://randomuser.me/api/?results=3';
 
-//Async function that will fetch the api and take the data
+//Get data from API
 
 async function getData(url) {
 	const data = await (await fetch(url)).json();
@@ -10,6 +10,7 @@ async function getData(url) {
 
 const userArray = getData(url).then((response) => response);
 
+//Set user pictures
 async function setPictures(users) {
 	const pictures = document.querySelectorAll('main ul li article header img');
 	for (let i = 0; i < pictures.length; i++) {
@@ -18,7 +19,9 @@ async function setPictures(users) {
 	}
 }
 
+//Set user names
 async function setName(users) {
+	console.log((await users)[1]);
 	const name = document.querySelectorAll('main ul li article header h1');
 
 	for (let i = 0; i < (await users).length; i++) {
@@ -28,27 +31,27 @@ async function setName(users) {
 	}
 }
 
-async function setEmail(users) {
-	const email = document.querySelectorAll('main ul li article p.email');
-	console.log(email);
+//Set any element of the body of the user
+async function set(elementToChange, users) {
+	let element = document.querySelectorAll(`main ul li article p.${elementToChange}`);
+	const initialLength = element.length;
 
 	for (let i = 0; i < (await users).length; i++) {
-		const newEmail = (await users)[i].email;
-		email[i].textContent = `Email: ${newEmail}`;
-	}
-}
-
-async function set(element, users) {
-	const element = document.querySelectorAll(`main ul li article p.${element}`);
-	console.log(element);
-
-	for (let i = 0; i < (await users).length; i++) {
-		const newEmail = (await users)[i][element];
-		element[i].textContent = `${element}: ${newEmail}`;
+		if (initialLength === 0) {
+			element = [];
+			element[i] = document.createElement('p');
+			element[i].classList.add(elementToChange, 'upper');
+			const article = document.querySelectorAll(`main ul li article`);
+			article[i].append(element[i]);
+		}
+		const newData = (await users)[i][elementToChange];
+		element[i].textContent = `${elementToChange}: ${newData}`;
 	}
 }
 
 setPictures(userArray);
 setName(userArray);
-setEmail(userArray);
+set('email', userArray);
 set('phone', userArray);
+set('cell', userArray);
+set('gender', userArray);
