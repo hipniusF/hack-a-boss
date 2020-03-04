@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Todo</title>
+		<link rel="stylesheet" href="/css/style.css" />
+	</head>
+	<body>
+		<header>
+			<h1>TODOs</h1>
+		</header>
+
+		<main>
+			<section class="app">
+				<form class="add">
+					<fieldset>
+						<label for="todoText">Nueva tarea:</label>
+						<input type="text" name="todoText" id="todoText" placeholder="Escribe lo que tienes que hacer" />
+					</fieldset>
+					<button>Añadir</button>
+				</form>
+
+				<button class="clear">Limpiar completadas</button>
+				<button class="destroy">Borrar todo</button>
+			</section>
+
+			<section class="list">
+				<ul class="todolist">
+					<li>
+						<input type="checkbox" />
+						<p>Ir al veterinario</p>
+					</li>
+					<li class="done">
+						<input type="checkbox" />
+						<p>Ir a por pan</p>
+					</li>
+				</ul>
+			</section>
+		</main>
+		<script type="module" src="/js/main.js"></script>
+	</body>
+</html>
