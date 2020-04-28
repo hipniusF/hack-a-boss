@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Internet!</title>
+	</head>
+	<body>
+		<form
+			action="http://127.0.0.1:3000/data"
+			method="POST"
+			enctype="multipart/form-data"
+		>
+			<fieldset>
+				<label for="text">Message</label>
+				<input type="text" name="message" id="message" />
+			</fieldset>
+
+			<fieldset>
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" />
+			</fieldset>
+
+			<button>Send</button>
+		</form>
+
+		<script src="/www/main.js"></script>
+	</body>
+</html>
+
+<!-- 
+	POST /data HTTP/1.1
+	Host: 127.0.0.1:3000
+	User-Agent: marca del navegador
+	Content-type: x-www-form-url-encoded
+				  multipart/form-data
+				  raw
+
+	contenido+del+formulario
+ -->
