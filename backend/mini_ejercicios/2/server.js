@@ -7,11 +7,8 @@ const { es } = require("date-fns/locale");
 const backDate = new Date(2020, 6, 30);
 
 server.on("request", (request, response) => {
-	const distance = formatDistance(backDate, new Date(), { locale: es });
-
-	console.log(request.url);
-
 	if (request.url === "/freedom") {
+		const distance = formatDistance(backDate, new Date(), { locale: es });
 		response.statusCode = 200;
 		response.setHeader("Content-Type", "application/json");
 		response.end(
@@ -19,6 +16,9 @@ server.on("request", (request, response) => {
 				message: `Faltan ${distance} para la libertad`,
 			})
 		);
+	} else {
+		response.statusCode = 404;
+		response.end("404Not found");
 	}
 });
 
