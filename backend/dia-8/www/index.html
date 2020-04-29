@@ -6,11 +6,11 @@
 		<title>Internet!</title>
 	</head>
 	<body>
-		<form
-			action="http://127.0.0.1:3000/data"
-			method="POST"
-			enctype="multipart/form-data"
-		>
+		<h1>Formulario de visitas</h1>
+
+		<h2>Envía tu mensaje</h2>
+
+		<form id="newmessage" action="http://127.0.0.1:3000/data">
 			<fieldset>
 				<label for="text">Message</label>
 				<input type="text" name="message" id="message" />
@@ -23,7 +23,8 @@
 
 			<button>Send</button>
 		</form>
-
+		<h2>Lista de mensajes</h2>
+		<ul id="messagelist"></ul>
 		<script src="/www/main.js"></script>
 	</body>
 </html>

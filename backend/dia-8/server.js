@@ -36,7 +36,7 @@ server.on("request", async function (request, response) {
 			response.end(JSON.stringify({ url, method, headers, query, body }));
 		 */
 
-			if (method === "GET" && (url === "/" || "/index.html")) {
+			if (method === "GET" && (url === "/" || url === "/index.html")) {
 				const data = await fs.readFile(
 					path.join(__dirname, "www/index.html"),
 					"utf-8"
@@ -45,7 +45,7 @@ server.on("request", async function (request, response) {
 				response.statusCode = 200;
 				response.setHeader("Content-type", "text/html");
 				response.end(data);
-			} else if (method === "GET" && url === "/main.js") {
+			} else if (method === "GET" && url === "/www/main.js") {
 				const data = await fs.readFile(
 					path.join(__dirname, "www/main.js"),
 					"utf-8"
@@ -64,6 +64,29 @@ server.on("request", async function (request, response) {
 				response.setHeader("Content-type", "application/json");
 				response.end(data);
 			} else if (method === "POST" && url === "/data") {
+				const newMessageData = JSON.parse(body);
+
+				const currentMessagesData = await fs.readFile(
+					path.join(__dirname, "guestbook.json"),
+					"utf-8"
+				);
+
+				const currentMessageObject = JSON.parse(currentMessagesData);
+
+				const updatedMessageObject = {
+					messages: [newMessageData, ...currentMessageObject.messages],
+				};
+
+				console.log(updatedMessageObject);
+
+				await fs.writeFile(
+					path.join(__dirname, "guestbook.json"),
+					JSON.stringify(updatedMessageObject)
+				);
+
+				response.statusCode = 200;
+				response.setHeader("Content-type", "application/json");
+				response.end(JSON.stringify(updatedMessageObject));
 			} else {
 				response.statusCode = 404;
 				response.setHeader("Content-type", "text/plain");
