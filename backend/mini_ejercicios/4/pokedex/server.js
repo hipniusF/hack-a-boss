@@ -7,6 +7,7 @@ const {
 	frontPage,
 	errorPage,
 	searchResults,
+	createPage,
 } = require("./helpers/html");
 
 const port = process.env.PORT;
@@ -14,6 +15,7 @@ const app = express();
 
 const pokedex = require("./pokedex.json");
 
+app.use(express.static(path.join(__dirname, "./static")));
 /*
   Rutas necesarias:
 
@@ -45,13 +47,28 @@ app.get("/search", (req, res) => {
 		throw new Error("La cadena de búsqueda debe tener más de 2 caracteres");
 
 	const searchPokemon = pokedex.filter((pokemon) => {
-		return pokemon.name.english.toLowerCase() == query;
+		return pokemon.name.english.toLowerCase().includes(query.toLowerCase());
 	});
 
 	const pageContent = searchResults(searchPokemon);
+
 	res
 		.status(200)
 		.send(pageLayout(`Resultados de la búsqueda: ${query}`, pageContent));
+});
+
+// --------
+// Middleware para manejar las listas
+app.get("/figures/:pokemon", (req, res, next) => {
+	const name = req.url.split("/");
+
+	const pokemon = pokedex.filter(
+		(pokemon) => pokemon.name.english.toLowerCase() === name[2]
+	);
+
+	const pageContent = createPage(pokemon);
+
+	res.send(pageLayout(`Resultados de la búsqueda: ${name}`, pageContent));
 });
 
 // --------
