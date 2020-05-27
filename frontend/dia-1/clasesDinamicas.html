@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Clases dinámicas</title>
+		<style>
+			* {
+				background-color: rebeccapurple;
+				color: white;
+				font-family: Arial, Helvetica, sans-serif;
+				list-style: none;
+			}
+
+			body {
+				text-align: center;
+			}
+
+			button {
+				color: rebeccapurple;
+				background: gold;
+				border: 0;
+				padding: 1rem;
+			}
+
+			.title {
+				margin-top: 3rem;
+				color: gold;
+			}
+
+			.green {
+				color: green;
+			}
+
+			.red {
+				color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- CLASES DINÁMICAS -->
+			<h1 :class="{ title: isGold }">To gold or not to gold</h1>
+
+			<ul>
+				<li
+					v-for="nota in notas"
+					:key="nota.id"
+					:class="{green: nota >= 5, red: nota < 5}"
+				>
+					{{nota}}
+				</li>
+			</ul>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data() {
+					return {
+						isGold: true,
+						notas: [5, 2, 10, 7, 3, 4, 9],
+					};
+				},
+			});
+
+			setTimeout(() => (app.$data.seeTitle = false), 10000);
+			setTimeout(() => (app.$data.seeSubtitle = false), 10000);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ejercicio</title>
+		<style>
+			body {
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 90vh;
+			}
+
+			table {
+				border: 10px double black;
+				background: white;
+			}
+
+			td,
+			th {
+				border: 1px solid black;
+				padding: 1rem;
+			}
+
+			.green {
+				color: green;
+				font-weight: bold;
+			}
+
+			.red {
+				color: red;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<table>
+				<tr>
+					<th>Nombre del alumno</th>
+					<th>Estado</th>
+				</tr>
+				<tr v-for="alumn in alumns" key="alumn.id">
+					<td>{{alumn.name}}</td>
+
+					<td :class="{green: alumn.mark >= 5, red: alumn.mark < 5}">
+						{{alumn.mark >= 5 ? 'Aprobado':'Suspenso'}}
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data() {
+					return {
+						alumns: [
+							{ name: "María", mark: 8 },
+							{ name: "Néstor", mark: 4 },
+							{ name: "Alejandra", mark: 6 },
+							{ name: "Susana", mark: 2 },
+							{ name: "Alberto", mark: 7 },
+						],
+					};
+				},
+			});
+		</script>
+	</body>
+</html>

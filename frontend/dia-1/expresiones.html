@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Expresiones</title>
+		<style>
+			* {
+				background-color: rebeccapurple;
+				color: white;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			body {
+				text-align: center;
+			}
+			span {
+				color: gold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- EXPRESIONES NÚMERICAS -->
+			<p>{{5 + 5}}</p>
+
+			<!-- EXPRESIONES TEXTUALES -->
+			<p>{{`Marco` + ' ' + Math.PI}}</p>
+			<p>{{name + ' ' + age}}</p>
+
+			<!-- EXPRESIONES CON OPERADORES SIMPLES -->
+			<p>{{'hola'.toUpperCase()}}</p>
+
+			<!-- EXPRESIONES TERNARIAS -->
+			{{butaca ? 'libre':'ocupada'}}
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data() {
+					return {
+						name: "Marco",
+						age: Math.PI,
+						butaca: true,
+					};
+				},
+			});
+			console.log(app.data().name);
+		</script>
+	</body>
+</html>

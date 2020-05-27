@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Directivas</title>
+		<style>
+			* {
+				background-color: rebeccapurple;
+				color: white;
+				font-family: Arial, Helvetica, sans-serif;
+				list-style: none;
+			}
+			body {
+				text-align: center;
+			}
+
+			button {
+				color: rebeccapurple;
+				background: gold;
+				border: 0;
+				padding: 1rem;
+			}
+
+			p.title {
+				margin-top: 3rem;
+				color: gold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- DIRECTIVA V-IF -->
+			<h1 v-if="seeTitle">BEATIFUL WEBPAGE</h1>
+
+			<!-- DIRECTIVA V-SHOW -->
+			<h2 v-show="seeSubtitle">Vertical life</h2>
+
+			<!-- DIRECTIVA V-ON:CLICK or @click-->
+			<h3>{{counter}}</h3>
+
+			<button @click="counter++">
+				SUMAR
+			</button>
+
+			<button @click="counter--">
+				RESTAR
+			</button>
+
+			<!-- DIRECTIVA V-BIN || : -->
+			<figure>
+				<img :src="urlImage" :title="title" alt="random picture" />
+			</figure>
+
+			<!-- DIRECTIVA V-FOR -->
+			<p class="title">Not nice array: {{days}}</p>
+
+			<p class="title">Nicer array :) (not quite):</p>
+			<p v-for="day in days" :key="day.id">
+				{{day}}
+			</p>
+
+			<p class="title">Nice array :D</p>
+			<ul>
+				<li v-for="day in days" :key="day.id">
+					{{day}}
+				</li>
+			</ul>
+
+			<p class="title">Now with objects:</p>
+			<ul>
+				<li v-for="object in objectArray" :key="object.id">
+					Clase {{object.day}} a las {{object.hour}}
+				</li>
+			</ul>
+
+			<p class="title">WOW, with images:</p>
+			<ul>
+				<li v-for="img in imgs" :key="img.id">
+					<img :src="img" alt="random" />
+				</li>
+			</ul>
+
+			<!-- DIRECTIVA V-MODEL -->
+			<p>Welcome to my nightmare page, {{user}}</p>
+			<input type="text" v-model="user" />
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data() {
+					return {
+						seeTitle: true,
+						seeSubtitle: true,
+						counter: 0,
+						title: "hola",
+						urlImage: "https://source.unsplash.com/random/200x200",
+						days: [
+							"lunes",
+							"martes",
+							"miercoles",
+							"jueves",
+							"viernes",
+							"sabado",
+							"domingo",
+						],
+
+						objectArray: [
+							{ day: "lunes", hour: 10 },
+							{ day: "martes", hour: 11 },
+							{ day: "miercoles", hour: 12 },
+							{ day: "jueves", hour: 13 },
+						],
+
+						imgs: [
+							"https://source.unsplash.com/random/200x200",
+							"https://source.unsplash.com/random/201x200",
+							"https://source.unsplash.com/random/202x200",
+							"https://source.unsplash.com/random/203x200",
+						],
+					};
+				},
+			});
+
+			setTimeout(() => (app.$data.seeTitle = false), 10000);
+			setTimeout(() => (app.$data.seeSubtitle = false), 10000);
+		</script>
+	</body>
+</html>
