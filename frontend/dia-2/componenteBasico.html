@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			article {
+				width: 12rem;
+				border: 1px solid black;
+				display: inline-block;
+				padding: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="app">
+			<card></card>
+			<card></card>
+			<card></card>
+			<card></card>
+			<card></card>
+			<card></card>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<script>
+			Vue.component("card", {
+				data() {
+					return {
+						title: "Esto es un titulo",
+						author: "Marco",
+					};
+				},
+				template: `
+					<article>
+						<h1> {{title}} </h1>
+						<p>
+							{{author}}
+						</p>
+						<hr>
+						<p>
+							Lorem ipsum
+						</p>
+					</article>
+				`,
+			});
+
+			const app = new Vue({
+				el: "#app",
+				data() {
+					return {};
+				},
+			});
+		</script>
+	</body>
+</html>

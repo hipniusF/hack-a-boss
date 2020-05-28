@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="./style/style.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<nav>
+				<a href="./index.html">INICIO</a> ||
+				<a href="./products.html">PRODUCTOS (Estás aquí)</a>
+			</nav>
+
+			<h1>Sección de productos</h1>
+
+			<h2>Carrito: {{cart}}</h2>
+
+			<table>
+				<tr>
+					<th>Nombre del producto</th>
+					<th>Imagen</th>
+					<th>Estado</th>
+					<th>Añadire al carro</th>
+				</tr>
+				<tr v-for="product in products" :key="product.id">
+					<td>{{product.name}}</td>
+					<td>
+						<img :src="product.img" alt="tarro" height="50" />
+					</td>
+
+					<td
+						:class="{green: product.state == 'Disponible', red: product.state == 'No disponible'}"
+					>
+						{{product.state}}
+					</td>
+					<td>
+						<button @click="cart++">
+							Añadir unidad
+						</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+		<script>
+			const app = new Vue({
+				el: "#app",
+				data() {
+					return {
+						cart: 0,
+						products: [
+							{
+								name: "Alubias",
+								img:
+									"https://i.pinimg.com/originals/bc/0c/22/bc0c2252f26b976dc08c7ecb66f98a7e.jpg",
+								state: "Disponible",
+							},
+							{
+								name: "Garbanzos",
+								img:
+									"https://cdn.grupoelcorteingles.es/SGFM/dctm/MEDIA03/201811/20/00118007000906____2__600x600.jpg",
+								state: "No disponible",
+							},
+							{
+								name: "Judías verdes",
+								img:
+									"https://i.pinimg.com/originals/bc/0c/22/bc0c2252f26b976dc08c7ecb66f98a7e.jpg",
+								state: "Disponible",
+							},
+							{
+								name: "Remolacha",
+								img:
+									"https://lh3.googleusercontent.com/proxy/5LyZsF35zenzrONvKBC0V5YoYuTaKa_TqjNqcWkDu1bBd5RzYZslkknaqyjtwySii1Cz10Swf43uP7P6o8WotG0a01P-v5OuKHfcKYYeHPu0vO7Ew6t65umePZidxCSKZecpVUGUplF2X0ceY6d3q_rqI5WDeg36qBqDLJ-7M56FrWCSgYXCvS5L631BL7J3yHpCoQE_nEKVjlFnCyJKLR1KlNivVChdtbBs",
+								state: "No disponible",
+							},
+						],
+					};
+				},
+			});
+		</script>
+	</body>
+</html>
