@@ -2,7 +2,7 @@
   <div class="card">
     <a :href="char.url" target="_blank">
       <h1>{{char.id}}: {{char.name}}</h1>
-      <img :src="char.image" :alt="char.name" width="170" />
+      <img :src="char.image" :alt="char.name" />
       <section class="data">
         <p>
           <span>Status:</span>
@@ -64,16 +64,19 @@ h1 {
 }
 
 img {
-  border-radius: 99%;
+  border-radius: 100%;
   grid-area: b;
-  margin: auto 2rem auto;
-  padding-bottom: 1rem;
+  width: 60%;
+  margin-left: 1rem;
+  padding-bottom: 0.2rem;
+  width: 170px;
+  object-fit: cover;
 }
 
 section.data {
   grid-area: c;
   width: 80%;
-  padding: 2rem 0 0 1rem;
+  padding: 1rem 1rem 0 1rem;
   text-align: left;
 }
 
@@ -85,15 +88,34 @@ section.data p span {
   text-decoration: underline;
   font-weight: bold;
 }
+
+@media (max-width: 1025px) {
+  div.card a {
+    height: 33rem;
+
+    grid-template-areas:
+      "a"
+      "b"
+      "c";
+  }
+
+  figure img {
+    width: 70%;
+    margin: auto;
+  }
+  h1 {
+    min-height: 150px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    min-height: 0;
+  }
+  img {
+    margin: auto;
+    border-radius: 20%;
+    width: 70%;
+  }
+}
 </style>
-
-
-
-/* Mostrar:
-  -ID
-  -Estado de personaje
-  -Especie
-  -Género
-  -Imagen
-  -Datos de origen
- */  
