@@ -113,7 +113,7 @@ export default {
 <style scoped>
 div.home {
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
 }
 
 h1 {
@@ -136,7 +136,7 @@ ul {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
+  grid-gap: 1rem;
   margin: 3rem;
 }
 
