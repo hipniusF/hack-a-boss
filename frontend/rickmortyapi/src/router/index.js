@@ -9,6 +9,13 @@ const routes = [
 		path: "/",
 		name: "Home",
 		component: Home,
+		meta: { title: "About - MyApp" },
+	},
+	{
+		path: "/about",
+		name: "About",
+		component: () => import("../views/About.vue"),
+		meta: { title: "About - MyApp" },
 	},
 ];
 

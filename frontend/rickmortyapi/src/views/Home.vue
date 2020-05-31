@@ -3,6 +3,8 @@
     <h1>Rick and Morty</h1>
     <h2>Characters with their data and links to their wikis</h2>
 
+    <MenuCustom></MenuCustom>
+
     <form>
       <fieldset class="defaultSearch" v-show="!advanceSearch">
         <label for="search">Search:</label>
@@ -53,12 +55,14 @@
 
 <script>
 import CharCard from "@/components/CharCard.vue";
+import MenuCustom from "@/components/MenuCustom.vue";
 import api from "@/api/api.js";
 
 export default {
   name: "Home",
   components: {
-    CharCard
+    CharCard,
+    MenuCustom
   },
   data() {
     return {
@@ -174,6 +178,7 @@ button {
   border: 0;
   text-decoration: underline;
   background: white;
+  cursor: pointer;
 }
 
 button:focus {
