@@ -29,10 +29,12 @@ export default {
 
 <style scoped>
 .buttons {
-	width: 30%;
+	width: 50%;
 	padding: 1rem;
-	border: 2px dashed slateblue;
 	margin: 5rem auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .buttons button {
@@ -41,12 +43,6 @@ export default {
 	padding: 1rem;
 	border-radius: 1rem;
 	margin: 0.667rem;
-	cursor: pointer;
-}
-
-button:focus {
-	outline: none;
-	border: 1px solid black;
 }
 
 .buttons button.attack {

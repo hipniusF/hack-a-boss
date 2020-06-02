@@ -2,12 +2,13 @@
 	<div class="hpbars">
 		<div>
 			<p>Player (you)</p>
-			<div class="bar" :style="{width: playerHp + '%'}">{{playerHp}}</div>
+			<div class="bar" :style="{ width: playerHp + '%' }">{{ playerHp }}</div>
+			<p>{{ message }}</p>
 		</div>
 
 		<div>
-			<p>Enemy</p>
-			<div class="bar" :style="{width: enemyHp + '%'}">{{enemyHp}}</div>
+			<p>Lich</p>
+			<div class="bar" :style="{ width: enemyHp + '%' }">{{ enemyHp }}</div>
 		</div>
 	</div>
 </template>
@@ -17,7 +18,8 @@ export default {
 	name: 'HpBar',
 	props: {
 		playerHp: Number,
-		enemyHp: Number
+		enemyHp: Number,
+		message: String
 	}
 };
 </script>
@@ -27,6 +29,10 @@ p {
 	color: white;
 }
 
+p:nth-child(3) {
+	margin-top: 0.5rem;
+	color: #f8f32b;
+}
 .hpbars {
 	width: 80%;
 	text-align: center;
