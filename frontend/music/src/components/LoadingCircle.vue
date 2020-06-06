@@ -23,6 +23,9 @@ export default {
 
 <style scoped>
 .lds-spinner {
+	margin: 0 auto;
+	margin-top: 30vh;
+
 	color: official;
 	display: inline-block;
 	position: relative;

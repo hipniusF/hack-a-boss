@@ -1,6 +1,10 @@
 <template>
 	<div class="error">
-		<h1>404 Error, NOT FOUND</h1>
+		<h1>404 Error</h1>
+		<h1>PAGE NOT FOUND</h1>
+		<router-link :to="{name: 'Home'}">
+			<button>Rerturn to home</button>
+		</router-link>
 	</div>
 </template>
 
@@ -13,6 +17,17 @@ export default {
 
 <style scoped>
 h1 {
-	margin: 4rem;
+	padding: 4rem 0 1rem 0;
+	color: white;
+}
+
+button {
+	width: 10rem;
+	height: 3em;
+	border: 0;
+	border-radius: 5rem;
+	background: white;
+	margin: 0 auto;
+	cursor: pointer;
 }
 </style>

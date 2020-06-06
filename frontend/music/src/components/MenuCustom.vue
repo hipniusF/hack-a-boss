@@ -1,9 +1,9 @@
 <template>
 	<div>
 		<div id="nav">
-			<router-link :to="{name: 'Home'}">Home</router-link>|
-			<router-link :to="{name: 'TopArtists'}">Artists</router-link>|
-			<router-link :to="{name: 'TopTracks'}">Tracks</router-link>|
+			<router-link :to="{name: 'Home'}">Home</router-link>
+			<router-link :to="{name: 'TopArtists'}">Artists</router-link>
+			<router-link :to="{name: 'TopTracks'}">Tracks</router-link>
 			<router-link :to="{name: 'About'}">About</router-link>
 		</div>
 	</div>
@@ -24,6 +24,7 @@ export default {
 #nav a {
 	font-weight: bold;
 	color: white;
+	padding-left: 1rem;
 }
 
 #nav a.router-link-exact-active {

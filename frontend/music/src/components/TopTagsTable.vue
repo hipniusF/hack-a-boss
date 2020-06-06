@@ -1,12 +1,8 @@
 <template>
-	<div class="tagsTable">
-		<ul>
-			<li v-for="tag in tags" :key="tag.id">
-				<a :href="tag.url" target="_blank">
-					<p>{{tag.name}}</p>
-				</a>
-			</li>
-		</ul>
+	<div>
+		<!-- <a :href="tag.url" target="_blank"> -->
+		<h1>{{tag.name}}</h1>
+		<!-- </a> -->
 	</div>
 </template>
 
@@ -14,25 +10,32 @@
 export default {
 	name: 'TopTagsTable',
 	props: {
-		tags: Array
+		tag: Object
 	}
 };
 </script>
 
 <style scoped>
-.tagsTable a {
+div {
+	/* width: 15rem;
+	height: 20rem; */
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 0.3rem;
+}
+
+img {
+	border-radius: 100%;
+	margin: auto;
+}
+
+h1 {
 	color: white;
+	margin: 1rem auto;
+}
+
+a {
 	text-decoration: none;
-}
-
-.tagsTable ul {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	list-style: none;
-}
-
-.tagsTable ul li {
-	margin: 3rem;
 }
 </style>

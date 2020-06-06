@@ -1,24 +1,32 @@
 <template>
 	<div>
-		<h1>{{track.name}}</h1>
+		<h1>{{tag.name}}</h1>
 
-		<img :src="track.album.image[2]['#text']" :alt="track.album.title" />
+		<p>Reach: {{tag.reach}}</p>
+		<p>Total: {{tag.total}}</p>
 
-		<p>Album: {{track.album.title}}</p>
-		<p>Artist: {{track.artist.name}}</p>
-		<p>Listeners: {{track.listeners}}</p>
-		<p>Playcount: {{track.playcount}}</p>
-
-		<h2>Top tags:</h2>
+		<h2>Top artists of the tag</h2>
 		<ul>
-			<li v-for="item in track.toptags" :key="item.id">
+			<li v-for="item in tag.topartists" :key="item.id">
 				<p>{{item.name}}</p>
 			</li>
 		</ul>
 
-		<br />
+		<h2>Top albums of the tag</h2>
+		<ul>
+			<li v-for="item in tag.topalbums" :key="item.id">
+				<p>{{item.name}}</p>
+			</li>
+		</ul>
+
+		<h2>Top tracks of the tag</h2>
+		<ul>
+			<li v-for="item in tag.toptracks" :key="item.id">
+				<p>{{item.name}}</p>
+			</li>
+		</ul>
+
 		<a @click="contentEvent()">Show content</a>
-		<a :href="track.url">Listen to the artist</a>
 	</div>
 </template>
 
@@ -26,20 +34,15 @@
 import Swal from 'sweetalert2';
 
 export default {
-	name: 'TrackCard',
+	name: 'ArtistCard',
 	props: {
-		track: Object
-	},
-	computed: {
-		lastfmUrl() {
-			return `https://www.last.fm/music/${this.artist.name.replace(' ', '+')}/`;
-		}
+		tag: Object
 	},
 	methods: {
 		contentEvent() {
 			Swal.fire({
-				title: `${this.track.name} content:`,
-				html: this.track.wiki.content,
+				title: `${this.tag.name} content:`,
+				html: this.tag.wiki.content,
 				width: 1000,
 				confirmButtonText: 'Exit'
 			});
@@ -59,10 +62,6 @@ a {
 	margin-top: 2rem;
 	color: black;
 	cursor: pointer;
-}
-
-img {
-	margin: 2rem 0;
 }
 
 ul {

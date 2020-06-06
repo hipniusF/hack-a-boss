@@ -1,12 +1,16 @@
 <template>
 	<div class="tracks">
+		<!-- Head data from the view -->
 		<vue-headful title="Top Tracks | MusicF" description="Home page of hackamuseum" />
 
 		<menucustom />
 
+		<!-- Change pictures variable button -->
 		<button @click="picturesShow()" :class="classButton">Show Pictures (slow)</button>
 
 		<loadingcircle v-show="loading" class="loadingcircle" />
+
+		<!-- Search menu -->
 		<form v-show="!loading">
 			<fieldset class="defaultSearch" v-show="!advanceSearch">
 				<label for="search">Search:</label>
@@ -33,6 +37,7 @@
 			<button @click="advanceSearch = !advanceSearch">Advanced search</button>
 		</form>
 
+		<!-- Artist grid of items -->
 		<div class="tracksTable">
 			<ul>
 				<li
@@ -77,16 +82,19 @@ export default {
 	},
 
 	async mounted() {
+		// Create pictures variable if it does not exist
 		if (!localStorage.pictures) {
 			localStorage.pictures = false;
 		}
+
+		// Get the tracks from the api adding the imaging only if the pictures variable is set to true
 		this.tracks = await api.getTracks(localStorage.pictures);
 		console.log(this.tracks);
 		this.loading = false;
 	},
 
 	computed: {
-		// This computed variable makes the button change class dependes on if its active
+		// This computed variable makes the button change class depending on the pictures variable
 		classButton() {
 			if (localStorage.pictures === 'true') {
 				return 'active';
@@ -94,6 +102,8 @@ export default {
 				return 'deactive';
 			}
 		},
+
+		// Function for filtering tracks
 		filteredTracks() {
 			let searchResult = this.tracks;
 
@@ -133,6 +143,7 @@ export default {
 		componentSwal(component, propsObject) {
 			Swal.fire({
 				html: '<div id="VueSweetAlert2"></div>',
+				width: 800,
 				onBeforeOpen: () => {
 					let ComponentClass = Vue.extend(component);
 					let instance = new ComponentClass({
@@ -150,18 +161,11 @@ export default {
 <style scoped>
 .tracks {
 	min-height: 100vh;
-	width: 80%;
+	width: 100%;
 	margin: 0 auto;
 
 	display: grid;
 }
-
-/* 	<Loading styles> */
-.loadingcircle {
-	margin: 0 auto;
-	margin-top: 30vh;
-}
-/* 	</Loading styles> */
 
 /* <Tags styles> */
 .tracksTable ul {

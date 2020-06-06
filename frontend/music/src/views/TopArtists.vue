@@ -1,10 +1,12 @@
 <template>
 	<div class="artists">
+		<!-- Head data from the view -->
 		<vue-headful title="Top Artists | MusicF" description="Home page of hackamuseum" />
 
 		<menucustom />
 		<loadingcircle v-show="loading" />
 
+		<!-- Search menu -->
 		<form v-show="!loading">
 			<fieldset class="defaultSearch">
 				<label for="search">Search:</label>
@@ -12,6 +14,7 @@
 			</fieldset>
 		</form>
 
+		<!-- Artist grid of items -->
 		<div class="artistsTable">
 			<ul>
 				<li v-for="artist in filteredArtist" :key="artist.id" @click="showArtistInfo(artist.mbid)">
@@ -43,15 +46,17 @@ export default {
 	data() {
 		return {
 			artists: [],
-			artistId: 0,
 			loading: true,
 			search: ''
 		};
 	},
+
 	async mounted() {
+		// Petition to the api to get the artist data with log of the raw data to the console
 		this.artists = await api.getArtists();
 
 		console.log(this.artists);
+
 		this.loading = false;
 	},
 	computed: {
@@ -79,6 +84,7 @@ export default {
 		componentSwal(component, propsObject) {
 			Swal.fire({
 				html: '<div id="VueSweetAlert2"></div>',
+				width: 1000,
 				onBeforeOpen: () => {
 					let ComponentClass = Vue.extend(component);
 					let instance = new ComponentClass({
@@ -101,12 +107,6 @@ export default {
 	margin: 0 auto;
 }
 /* </GENERAL STYLES> */
-
-/* 	<Loading styles> */
-.loadingcircle {
-	margin-top: 30vh;
-}
-/* 	</Loading styles> */
 
 /* <Tags styles> */
 .artistsTable a {
