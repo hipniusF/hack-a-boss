@@ -22,7 +22,7 @@ a {
 
 div {
 	width: 15rem;
-	height: 20rem;
+	min-height: 20rem;
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-gap: 0.3rem;
@@ -36,5 +36,12 @@ img {
 h1 {
 	color: white;
 	margin: 1rem auto;
+}
+
+@media (max-width: 600px) {
+	div {
+		display: block;
+		min-height: 0;
+	}
 }
 </style>

@@ -6,16 +6,18 @@
 		<menucustom />
 		<loadingcircle v-show="loading" />
 
-		<!-- Search menu -->
-		<form v-show="!loading">
-			<fieldset class="defaultSearch">
-				<label for="search">Search:</label>
-				<input type="text" v-model="search" name="search" id="search" placeholder="Type search terms" />
-			</fieldset>
-		</form>
+		<div class="artistsTable" v-show="!loading">
+			<h3>Top artists:</h3>
 
-		<!-- Artist grid of items -->
-		<div class="artistsTable">
+			<!-- Search menu -->
+			<form>
+				<fieldset class="defaultSearch">
+					<label for="search">Search:</label>
+					<input type="text" v-model="search" name="search" id="search" placeholder="Type artist's name" />
+				</fieldset>
+			</form>
+
+			<!-- Artist grid of items -->
 			<ul>
 				<li v-for="artist in filteredArtist" :key="artist.id" @click="showArtistInfo(artist.mbid)">
 					<artiststable :artist="artist" />
@@ -103,15 +105,21 @@ export default {
 /* <GENERAL STYLES> */
 .artists {
 	min-height: 100vh;
-	width: 80%;
-	margin: 0 auto;
 }
+
 /* </GENERAL STYLES> */
 
-/* <Tags styles> */
-.artistsTable a {
+/* <Artists styles> */
+h3 {
 	color: white;
-	text-decoration: none;
+	font-size: 2rem;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.artistsTable {
+	width: 80%;
+	margin: 0 auto;
 }
 
 .artistsTable ul {
@@ -122,12 +130,12 @@ export default {
 }
 
 .artistsTable ul li {
-	margin: 3em 2rem;
+	margin: 2rem 0rem;
 	cursor: pointer;
 }
-/* </Tags styles> */
+/* </Artists styles> */
 
-/* <search sylez> */
+/* <search syles> */
 form fieldset {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -150,5 +158,5 @@ form select {
 form label {
 	color: white;
 }
-/* </search sylez> */
+/* </search syles> */
 </style>

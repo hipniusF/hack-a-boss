@@ -36,7 +36,7 @@
 			</ul>
 		</div>
 
-		<!-- Top albums -->
+		<!-- Top tracks -->
 		<a class="dropdown" :class="{dropped: toptracks}" @click="toptracks = !toptracks">Top tracks</a>
 
 		<div v-show="toptracks">
@@ -85,7 +85,7 @@ h2 {
 
 a {
 	display: block;
-	margin-top: 2rem;
+	margin: 2rem 0;
 	color: black;
 	cursor: pointer;
 }
@@ -105,15 +105,14 @@ li:not(:last-child) {
 }
 
 a.dropdown {
-	margin-top: 3rem;
-	margin-bottom: 1rem;
+	margin: 0;
 }
 
 a.dropdown::after {
-	content: ' ⌃';
+	content: ' ▲';
 }
 
 a.dropdown.dropped::after {
-	content: ' ⌄';
+	content: ' ▼';
 }
 </style>

@@ -4,10 +4,23 @@
 
 		<menucustom />
 		<loadingcircle v-show="loading" class="loadingcircle" />
+		<h1>MusicF</h1>
+		<h2>Music center</h2>
 
-		<div class="tagsTable">
+		<div class="tagsTable" v-show="!loading">
+			<h3>Music tags:</h3>
+
+			<!-- Search menu -->
+			<form>
+				<fieldset class="defaultSearch">
+					<label for="search">Search:</label>
+					<input type="text" v-model="search" name="search" id="search" placeholder="Type tag's name" />
+				</fieldset>
+			</form>
+
+			<!-- Tag grid of items -->
 			<ul>
-				<li v-for="tag in tags" :key="tag.id" @click="showTagInfo(tag.name)">
+				<li v-for="tag in filteredTags" :key="tag.id" @click="showTagInfo(tag.name)">
 					<tagstable :tag="tag" />
 				</li>
 			</ul>
@@ -35,7 +48,8 @@ export default {
 	data() {
 		return {
 			tags: [],
-			loading: true
+			loading: true,
+			search: ''
 		};
 	},
 	async mounted() {
@@ -45,16 +59,17 @@ export default {
 		this.loading = false;
 	},
 	computed: {
-		// Function for filtering artists
-		filteredArtist() {
-			let searchResult = this.artists;
+		// Function for filtering tags
+		filteredTags() {
+			let searchResult = this.tags;
 
 			if (this.search) {
-				searchResult = searchResult.filter((artist) => artist.name.toLowerCase().includes(this.search.toLowerCase()));
+				searchResult = searchResult.filter((tag) => tag.name.toLowerCase().includes(this.search.toLowerCase()));
 			}
 			return searchResult;
 		}
 	},
+
 	methods: {
 		// Returns the extra information of a specific artist using its mbid
 		async showTagInfo(name) {
@@ -85,13 +100,38 @@ export default {
 </script>
 
 <style scoped>
+/* <GENERAL STYLES> */
 .home {
 	min-height: 100vh;
 }
 
-.artisttagsTablesTable a {
+h1 {
 	color: white;
-	text-decoration: none;
+	font-size: 3rem;
+	text-decoration: underline;
+	margin: 0 0 1rem 0;
+}
+
+h2 {
+	color: white;
+	font-size: 2rem;
+}
+
+/* </GENERAL STYLES> */
+
+/* <Tags styles> */
+
+h3 {
+	color: white;
+	font-size: 2rem;
+	/* text-align: left; */
+	margin: 4rem 0 2rem;
+	text-decoration: underline;
+}
+
+.tagsTable {
+	width: 80%;
+	margin: 0 auto;
 }
 
 .tagsTable ul {
@@ -100,9 +140,35 @@ export default {
 	flex-wrap: wrap;
 	list-style: none;
 }
+/* </Tags styles> */
 
 .tagsTable ul li {
-	margin: 3em 2rem;
+	margin: 1rem 2rem;
 	cursor: pointer;
 }
+
+/* <search syles> */
+form fieldset {
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 15rem;
+	margin: 2rem auto 1rem;
+	border: 0;
+}
+
+form fieldset fieldset {
+	border: 0;
+	text-align: right;
+}
+
+form input,
+form select {
+	width: 15rem;
+	height: 2rem;
+}
+
+form label {
+	color: white;
+}
+/* </search syles> */
 </style>

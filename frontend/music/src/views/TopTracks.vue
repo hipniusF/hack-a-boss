@@ -10,35 +10,37 @@
 
 		<loadingcircle v-show="loading" class="loadingcircle" />
 
-		<!-- Search menu -->
-		<form v-show="!loading">
-			<fieldset class="defaultSearch" v-show="!advanceSearch">
-				<label for="search">Search:</label>
-				<input
-					type="text"
-					v-model="search.name"
-					name="search"
-					id="search"
-					placeholder="Type search terms"
-				/>
-			</fieldset>
+		<div class="tracksTable" v-show="!loading">
+			<h3>Top tracks:</h3>
 
-			<fieldset v-show="advanceSearch" class="advance">
-				<fieldset>
-					<label for="byId">Search by Artist:</label>
-					<input type="text" name="byId" id="byId" v-model="search.artist" />
+			<!-- Search menu -->
+			<form>
+				<fieldset class="defaultSearch" v-show="!advanceSearch">
+					<label for="search">Search:</label>
+					<input
+						type="text"
+						v-model="search.name"
+						name="search"
+						id="search"
+						placeholder="Type search terms"
+					/>
 				</fieldset>
 
-				<fieldset>
-					<label for="byName">Search by Name:</label>
-					<input type="text" name="byName" id="byName" v-model="search.name" />
-				</fieldset>
-			</fieldset>
-			<button @click="advanceSearch = !advanceSearch">Advanced search</button>
-		</form>
+				<fieldset v-show="advanceSearch" class="advance">
+					<fieldset>
+						<label for="byId">Search by Artist:</label>
+						<input type="text" name="byId" id="byId" v-model="search.artist" />
+					</fieldset>
 
-		<!-- Artist grid of items -->
-		<div class="tracksTable">
+					<fieldset>
+						<label for="byName">Search by Name:</label>
+						<input type="text" name="byName" id="byName" v-model="search.name" />
+					</fieldset>
+				</fieldset>
+				<button @click="advanceSearch = !advanceSearch">Advanced search</button>
+			</form>
+
+			<!-- Artist grid of items -->
 			<ul>
 				<li
 					v-for="track in filteredTracks"
@@ -167,7 +169,20 @@ export default {
 	display: grid;
 }
 
-/* <Tags styles> */
+/* <Tracks styles> */
+h3 {
+	margin-top: 3rem;
+	color: white;
+	font-size: 2rem;
+	text-align: center;
+	text-decoration: underline;
+}
+
+.tracksTable {
+	width: 80%;
+	margin: 0 auto;
+}
+
 .tracksTable ul {
 	display: flex;
 	justify-content: center;
@@ -176,10 +191,10 @@ export default {
 }
 
 .tracksTable ul li {
-	margin: 3em 2rem;
+	margin: 2rem 0rem;
 	cursor: pointer;
 }
-/* </Tags styles> */
+/* </Tracks styles> */
 
 /* <button styles> */
 button {
