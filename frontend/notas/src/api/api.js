@@ -29,6 +29,21 @@ app.get('/', (req, res) => {
 	res.send('Hello world');
 });
 
+app.get('/todo/:id', (req, res) => {
+	try {
+		const { id } = req.params;
+
+		connection.query(`SELECT * FROM todo_list WHERE id=${id}`, (error, results) => {
+			if (error) throw error;
+
+			res.json(results);
+		});
+	} catch (error) {
+		console.log(error);
+		res.send(error);
+	}
+});
+
 app.get('/todo', (req, res) => {
 	try {
 		connection.query(`SELECT * FROM todo_list`, (error, results) => {
@@ -38,6 +53,7 @@ app.get('/todo', (req, res) => {
 		});
 	} catch (error) {
 		console.log(error);
+		res.send(error);
 	}
 });
 
@@ -49,12 +65,21 @@ app.put('/todo/update/:id', (req, res) => {
 
 		res.send('Task updated');
 	} catch (error) {
+		console.log(error);
 		res.send(error);
 	}
 });
 
 app.delete('/todo/del/:id', (req, res) => {
-	res.send('Delete todo');
+	try {
+		const { id } = req.params;
+		connection.query(`DELETE FROM todo_list WHERE id=?`, [id]);
+
+		res.send('Task deleted');
+	} catch (error) {
+		console.log(error);
+		res.send(error);
+	}
 });
 
 app.post('/todo/new', (req, res) => {
@@ -68,6 +93,7 @@ app.post('/todo/new', (req, res) => {
 
 		res.send('Todo added');
 	} catch (error) {
+		console.log(error);
 		res.send(error);
 	}
 });

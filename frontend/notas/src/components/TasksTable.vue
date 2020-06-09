@@ -5,6 +5,7 @@
 				<div class="show" v-show="!editing">
 					{{task.text}}
 					<button @click="editTaskEvent(task)">Edit</button>
+					<button @click="delTaskEvent(task.id)">✗</button>
 				</div>
 			</li>
 		</ul>
@@ -21,6 +22,9 @@ export default {
 	methods: {
 		editTaskEvent(task) {
 			this.$emit('edit', task);
+		},
+		delTaskEvent(id) {
+			this.$emit('remove', id);
 		}
 	}
 };
