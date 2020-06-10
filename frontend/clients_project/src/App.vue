@@ -3,11 +3,26 @@
 		<div id="nav">
 			<router-link :to="{name: 'Home'}">Home</router-link>|
 			<router-link :to="{name: 'AddClient'}">New client</router-link>|
-			<router-link :to="{name: 'About'}">About</router-link>
+			<router-link :to="{name: 'About'}">About</router-link>|
+			<button @click="logout()">Logout</button>
 		</div>
 		<router-view />
 	</div>
 </template>
+
+<script>
+import { clearLogin } from './api/utils.js';
+
+export default {
+	name: 'App',
+	methods: {
+		async logout() {
+			this.$router.push('/');
+			return clearLogin();
+		}
+	}
+};
+</script>
 
 <style>
 * {

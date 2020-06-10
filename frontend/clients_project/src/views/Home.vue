@@ -20,6 +20,7 @@
 <script>
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import { isLoggedIn } from '../api/utils.js';
 
 export default {
 	name: 'Home',

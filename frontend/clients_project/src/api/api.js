@@ -3,6 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
+const jwt = require('jsonwebtoken');
+const { secret } = require('./config');
 
 const app = express();
 
@@ -10,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.set('secret', secret);
 
 // MYSQL connection
 const connection = mysql.createConnection({
@@ -64,6 +67,28 @@ app.delete('/clients/del/:id', (req, res) => {
 	} catch (error) {
 		console.log(error);
 	}
+});
+
+// Login
+app.post('/auth', (req, res) => {
+	// Get data passed by the user
+	const { user, password } = req.body;
+
+	// Get data from the DB
+	connection.query(`SELECT * FROM users WHERE username=? and password=?`, [user, password], (error, results) => {
+		if (error) throw error;
+		if (results.length) {
+			const payload = { check: true, isAdmin: results[0].isAdmin };
+
+			const token = jwt.sign(payload, app.get('secret'), {
+				expiresIn: '15 day'
+			});
+
+			res.send({ message: 'Login successful', token: token });
+		} else {
+			console.log('Username or password incorrect');
+		}
+	});
 });
 
 const PORT = 3050;
