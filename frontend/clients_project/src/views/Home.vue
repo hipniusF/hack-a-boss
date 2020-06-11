@@ -12,8 +12,22 @@
 				<p>Surname: {{client.surname}}</p>
 				<p>City: {{client.city}}</p>
 				<p>Company: {{client.company}}</p>
+
+				<button @click="modal=true">Edit</button>
 			</li>
 		</ul>
+
+		<!-- EDIT CLIENTS MODAL -->
+		<div class="modal" v-show="modal">
+			<div class="modalBox">
+				<h2>Edit data modal (test)</h2>
+				<input type="text" placeholder="Enter your new data" />
+				<br />
+				<br />
+				<br />
+				<button @click="modal=false">Close</button>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -26,7 +40,8 @@ export default {
 	name: 'Home',
 	data() {
 		return {
-			clients: []
+			clients: [],
+			modal: false
 		};
 	},
 	methods: {
@@ -94,12 +109,28 @@ p:first-child {
 	font-weight: bold;
 }
 
-button {
+button:first-child {
 	position: absolute;
 	top: 10px;
 	right: 10px;
 	border: 0;
 	background: white;
 	cursor: pointer;
+}
+
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+}
+.modalBox {
+	background: #fefefe;
+	width: 30%;
+	margin: 15% auto;
+	padding: 20px;
+	border: 1px solid #888;
 }
 </style>
