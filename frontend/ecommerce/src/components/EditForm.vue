@@ -82,10 +82,11 @@ export default {
 div {
 	width: 20rem;
 	padding: 2rem;
-	margin: 3rem auto;
+	margin: 0 auto;
 	background: #fefefe;
 	border: 1px solid black;
 	position: relative;
+	top: 3rem;
 }
 
 form input {

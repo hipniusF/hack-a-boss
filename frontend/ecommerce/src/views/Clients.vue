@@ -2,8 +2,18 @@
 	<div>
 		<vue-headful title="Clients | Market" description="Home page of hackamarket" />
 
-		<menucustom />
-		<clientstable :clients="clients" v-on:delete="deleteClient" v-on:edit="editClientForm" />
+		<menucustom :logged="logged" v-on:logout="logout" />
+
+		<loadingspinner v-show="loading" class="spinner" />
+
+		<h1 v-show="!loading">Clients:</h1>
+
+		<clientstable
+			v-show="!loading"
+			:clients="clients"
+			v-on:delete="deleteClient"
+			v-on:edit="editClientForm"
+		/>
 
 		<!-- v-if for assuring that when the form loads the props are reeady  -->
 		<div class="edit" v-if="edit">
@@ -17,17 +27,22 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+// Auth functions
+import { isLoggedIn, logout } from '../api/auth';
+
 // Components
 import clientstable from '@/components/ClientsTable.vue';
 import menucustom from '@/components/MenuCustom.vue';
 import editform from '@/components/EditForm.vue';
+import loadingspinner from '@/components/LoadingSpinner.vue';
 
 export default {
 	name: 'Clients',
 	components: {
 		clientstable,
 		menucustom,
-		editform
+		editform,
+		loadingspinner
 	},
 	data() {
 		return {
@@ -38,7 +53,9 @@ export default {
 				ciudad: '',
 				empresa: ''
 			},
-			edit: false
+			logged: false,
+			edit: false,
+			loading: true
 		};
 	},
 	methods: {
@@ -104,27 +121,49 @@ export default {
 		// Close edit form function
 		closeForm() {
 			this.edit = false;
+		},
+		//
+		// Logout function
+		async logout() {
+			await logout();
+			location.reload();
 		}
 	},
 	async created() {
+		this.logged = await isLoggedIn();
 		this.clients = (await axios.get('http://127.0.0.1:3050/clients')).data;
 		console.log(this.clients);
+		this.loading = false;
 	}
 };
 </script>
 
 <style scoped>
 .edit {
-	position: absolute;
+	position: -webkit-sticky;
+	position: sticky;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	background: rgba(0, 0, 0, 0.5);
 	width: 100%;
+	min-height: 100vh;
 }
 editform {
 	margin: 30% auto;
 	padding: 20px;
 	border: 1px solid #888;
+}
+
+.spinner {
+	position: absolute;
+	top: 50%;
+}
+
+h1 {
+	margin: 0 auto 2rem;
+	padding-top: 2rem;
+	width: 60%;
+	text-align: left;
 }
 </style>

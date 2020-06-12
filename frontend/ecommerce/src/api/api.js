@@ -113,7 +113,9 @@ app.post('/login', (req, res) => {
 
 			if (response.length) {
 				const payload = { isAdmin: response[0].admin, email: response[0].email };
-				const token = jwt.sign(payload, secret);
+				const token = jwt.sign(payload, secret, {
+					expiresIn: '15 days'
+				});
 
 				res.send({ status: 'Athenticated', token: token });
 			} else {

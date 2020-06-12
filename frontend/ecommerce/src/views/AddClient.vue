@@ -2,7 +2,7 @@
 	<div>
 		<vue-headful title="Add Client | Market" description="Home page of hackamarket" />
 
-		<menucustom />
+		<menucustom :logged="logged" v-on:logout="logout" />
 
 		<h2>Add Client</h2>
 		<form v-on:submit.prevent>
@@ -54,6 +54,8 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+import { isLoggedIn, logout } from '../api/auth';
+
 import menucustom from '@/components/MenuCustom.vue';
 
 export default {
@@ -66,7 +68,8 @@ export default {
 			name: '',
 			surname: '',
 			city: '',
-			company: ''
+			company: '',
+			logged: false
 		};
 	},
 	methods: {
@@ -104,12 +107,23 @@ export default {
 			} else {
 				return true;
 			}
+		},
+		async logout() {
+			await logout();
+			location.reload();
 		}
+	},
+	async created() {
+		this.logged = await isLoggedIn();
 	}
 };
 </script>
 
 <style scoped>
+div {
+	margin-top: 1rem;
+}
+
 form {
 	width: 20rem;
 	padding: 2rem;

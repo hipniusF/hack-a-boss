@@ -2,13 +2,15 @@
 	<div>
 		<ul>
 			<li v-for="client in clients" :key="client.id">
-				<h2>{{client.id}}</h2>
+				<header>
+					<button @click="editClient(client)" class="edit">
+						<img src="@/assets/edit.png" alt="Edit" />
+					</button>
 
-				<button @click="editClient(client)" class="edit">
-					<img src="@/assets/edit.png" alt="Edit" />
-				</button>
+					<h2>{{client.id}}</h2>
 
-				<button @click="deleteClient(client.id)" class="delete">X</button>
+					<button @click="deleteClient(client.id)" class="delete">X</button>
+				</header>
 
 				<p>Name: {{client.nombre}}</p>
 				<p>Surname: {{client.apellido}}</p>
@@ -52,10 +54,12 @@ li {
 	padding: 1rem 1.5rem;
 	border: 2px solid black;
 	border-radius: 2rem;
-	position: relative;
 }
 
-h2 {
+header {
+	display: flex;
+	justify-content: space-between;
+	justify-items: ;
 	border-bottom: 1px solid black;
 }
 
@@ -68,7 +72,8 @@ button {
 	border: 0;
 	background: white;
 }
-button.delete {
+
+/* button.delete {
 	position: absolute;
 	top: 15px;
 	right: 15px;
@@ -78,7 +83,7 @@ button.edit {
 	position: absolute;
 	top: 10px;
 	left: 15px;
-}
+} */
 
 button img {
 	width: 1.7rem;
