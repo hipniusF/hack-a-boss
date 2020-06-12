@@ -31,6 +31,16 @@ const routes = [
 		meta: {
 			allowAnonymous: false,
 			allowOnlyAdmin: true
+		},
+		beforeEnter: (to, from, next) => {
+			if (to.meta.allowOnlyAdmin && !checkIsAdmin()) {
+				next({
+					name: 'Home',
+					query: { redirect: to.fullPath }
+				});
+			} else {
+				next();
+			}
 		}
 	},
 	{
@@ -61,11 +71,6 @@ router.beforeEach((to, from, next) => {
 	if (!to.meta.allowAnonymous && !isLoggedIn()) {
 		next({
 			name: 'Login',
-			query: { redirect: to.fullPath }
-		});
-	} else if (to.meta.allowOnlyAdmin && !checkIsAdmin()) {
-		next({
-			name: 'Home',
 			query: { redirect: to.fullPath }
 		});
 	} else {
