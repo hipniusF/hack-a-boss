@@ -4,6 +4,7 @@
 
 		<h2>Login</h2>
 		<form v-on:submit.prevent>
+			<p v-show="error">Password or email incorect</p>
 			<label for="email">Email:</label>
 			<input
 				type="email"
@@ -37,13 +38,18 @@ export default {
 	data() {
 		return {
 			email: '',
-			password: ''
+			password: '',
+			error: false
 		};
 	},
 	methods: {
 		async login() {
-			await login(this.email, this.password);
-			this.$router.push({ name: 'Products' });
+			try {
+				await login(this.email, this.password);
+				this.$router.push({ name: 'Products' });
+			} catch (error) {
+				this.error = true;
+			}
 		}
 	}
 };

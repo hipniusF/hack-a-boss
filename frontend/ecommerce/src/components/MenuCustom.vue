@@ -15,6 +15,8 @@
 			<router-link :to="{name: 'About'}">About</router-link>
 			<!-- </Pages navigation> -->
 
+			<div class="blankspace"></div>
+
 			<!-- <Auth navigation> -->
 			<div class="auth" v-show="!logged">
 				<router-link :to="{name: 'Register'}">Register</router-link>
@@ -54,6 +56,7 @@ export default {
 </script>
 
 <style scoped>
+/* <Upper menu for computer styles> */
 .menu {
 	position: -webkit-sticky;
 	position: sticky;
@@ -64,7 +67,6 @@ export default {
 
 #nav {
 	padding: 30px;
-	margin-bottom: 2rem;
 	background: #2c3e50;
 }
 
@@ -90,31 +92,59 @@ export default {
 	text-decoration: none;
 	padding: 1rem;
 	cursor: pointer;
+	text-transform: lowercase;
+	font-size: 1.2rem;
 }
+/* </Upper menu for computer styles> */
 
+/* <Sidebar Menu for mobile devices> */
 @media (max-width: 600px) {
+	.menu {
+		max-width: 70%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		bottom: 0;
+	}
+
 	#nav {
-		width: 70%;
+		margin-bottom: 2rem;
+		width: 15rem;
 		min-height: 100vh;
 		margin: 0;
+		padding-top: 5rem;
 
 		display: flex;
+		flex-direction: column;
 		flex-wrap: wrap;
+
+		align-content: flex-start;
 		align-items: flex-start;
+		justify-content: flex-start;
+	}
+
+	#nav a {
+		width: 100%;
+		margin-bottom: 2rem;
+		text-align: start;
+	}
+
+	.blankspace {
+		flex-grow: 1;
 	}
 
 	.auth {
 		position: unset;
-		align-self: flex-end;
 	}
 
 	button {
 		border: 0;
 		padding: 2px;
 		margin-right: 0rem;
-		background: white;
+		background: rgba(255, 255, 255, 0);
 		position: absolute;
-		left: 0;
+		left: 10px;
+		top: 10px;
 	}
 
 	button:focus {
@@ -136,4 +166,5 @@ export default {
 		margin: 6px 0;
 	}
 }
+/* </Sidebar Menu for mobile devices> */
 </style>

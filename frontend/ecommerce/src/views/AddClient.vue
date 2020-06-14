@@ -4,7 +4,7 @@
 
 		<menucustom :logged="logged" v-on:logout="logout" />
 
-		<h2>Add Client</h2>
+		<h1>Add Client</h1>
 		<form v-on:submit.prevent>
 			<label for="name">Name:</label>
 			<input
@@ -120,8 +120,9 @@ export default {
 </script>
 
 <style scoped>
-div {
+h1 {
 	margin-top: 1rem;
+	margin: 1rem;
 }
 
 form {

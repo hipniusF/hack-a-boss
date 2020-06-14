@@ -119,7 +119,7 @@ app.post('/login', (req, res) => {
 
 				res.send({ status: 'Athenticated', token: token });
 			} else {
-				console.log('Email or password incorrect');
+				res.status(404).send('Email or password incorrect');
 			}
 		});
 	} catch (error) {

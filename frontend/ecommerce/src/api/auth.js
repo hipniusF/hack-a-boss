@@ -17,6 +17,7 @@ export function login(email, password) {
 					grant_type: 'password'
 				}
 			});
+			console.log(res);
 			saveAuthToken(res.data.token);
 			resolve();
 		} catch (error) {

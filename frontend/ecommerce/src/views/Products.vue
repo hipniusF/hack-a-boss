@@ -6,13 +6,14 @@
 
 		<loadingspinner v-show="loading" class="spinner" />
 		<h1 v-show="!loading">Products:</h1>
-		<productstable :products="products" v-show="!loading" />
+		<productstable :products="products" v-show="!loading" v-on:addToCart="addToCart" />
 	</div>
 </template>
 
 <script>
 // Modules
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 // Auth functions
 import { isLoggedIn, logout } from '../api/auth';
@@ -40,6 +41,14 @@ export default {
 		async logout() {
 			await logout();
 			location.reload();
+		},
+		addToCart() {
+			Swal.fire({
+				icon: 'success',
+				title: 'Product added to cart succesfully',
+				showConfirmButton: false,
+				timer: 2000
+			});
 		}
 	},
 	async created() {
@@ -52,6 +61,10 @@ export default {
 </script>
 
 <style scoped>
+div {
+	background: #e8bd83;
+}
+
 .spinner {
 	position: absolute;
 	top: 50%;

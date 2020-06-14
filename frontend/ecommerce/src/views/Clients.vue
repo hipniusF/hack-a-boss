@@ -139,22 +139,6 @@ export default {
 </script>
 
 <style scoped>
-.edit {
-	position: -webkit-sticky;
-	position: sticky;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.5);
-	width: 100%;
-	min-height: 100vh;
-}
-editform {
-	margin: 30% auto;
-	padding: 20px;
-	border: 1px solid #888;
-}
-
 .spinner {
 	position: absolute;
 	top: 50%;
@@ -165,5 +149,22 @@ h1 {
 	padding-top: 2rem;
 	width: 60%;
 	text-align: left;
+}
+
+.edit {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	width: 100%;
+	min-height: 100vh;
+}
+
+editform {
+	margin: 30% auto;
+	padding: 20px;
+	border: 1px solid #888;
 }
 </style>
