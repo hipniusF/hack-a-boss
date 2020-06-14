@@ -51,11 +51,14 @@
 </template>
 
 <script>
+// Modules
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
+// Auth functions
 import { isLoggedIn, logout } from '../api/auth';
 
+// Components
 import menucustom from '@/components/MenuCustom.vue';
 
 export default {

@@ -1,12 +1,25 @@
 <template>
-	<div>
+	<div class="products">
 		<vue-headful title="Home | Market" description="Home page of hackamarket" />
 
 		<menucustom :logged="logged" v-on:logout="logout" />
 
 		<loadingspinner v-show="loading" class="spinner" />
+
 		<h1 v-show="!loading">Products:</h1>
-		<productstable :products="products" v-show="!loading" v-on:addToCart="addToCart" />
+
+		<form v-on:submit.prevent>
+			<label for="searchById">Search product:</label>
+			<input
+				v-model="search"
+				type="text"
+				name="searchById"
+				id="searchById"
+				placeholder="Type the name of the product"
+			/>
+		</form>
+
+		<productstable :products="filteredProducts" v-show="!loading" v-on:addToCart="addToCart" />
 	</div>
 </template>
 
@@ -34,8 +47,22 @@ export default {
 		return {
 			products: [],
 			logged: false,
-			loading: true
+			loading: true,
+			search: null
 		};
+	},
+	computed: {
+		// Function for filtering clients
+		filteredProducts() {
+			let searchResult = this.products;
+
+			if (this.search) {
+				searchResult = searchResult.filter((product) =>
+					product.nombre.toLowerCase().includes(this.search.toLowerCase())
+				);
+			}
+			return searchResult;
+		}
 	},
 	methods: {
 		async logout() {
@@ -61,8 +88,9 @@ export default {
 </script>
 
 <style scoped>
-div {
-	background: #e8bd83;
+.products {
+	min-height: 100vh;
+	background: #93dc80;
 }
 
 .spinner {
@@ -76,4 +104,27 @@ h1 {
 	width: 60%;
 	text-align: left;
 }
+
+/* <search syles> */
+form fieldset {
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 15rem;
+	margin: 2rem auto 1rem;
+	border: 0;
+}
+
+form fieldset fieldset {
+	border: 0;
+	text-align: right;
+}
+
+form input,
+form select {
+	margin: 0 auto;
+	display: block;
+	width: 15rem;
+	height: 2rem;
+}
+/* </search syles> */
 </style>

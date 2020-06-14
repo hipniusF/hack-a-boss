@@ -1,43 +1,28 @@
 <template>
 	<div>
-		<button class="mode" @click="displayList()">
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
+		<button class="mode" @click="displayTable()">
 			<div></div>
 			<div></div>
 			<div></div>
 		</button>
-		<table>
-			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Surname</th>
-				<th>City</th>
-				<th>Company</th>
-				<th>Edit</th>
-				<th>Delete</th>
-			</tr>
-			<tr v-for="client in clients" :key="client.id">
-				<td>{{client.id}}</td>
-				<td>{{client.nombre}}</td>
-				<td>{{client.apellido}}</td>
-				<td>{{client.ciudad}}</td>
-				<td>{{client.empresa}}</td>
-				<td>
+		<ul>
+			<li v-for="client in clients" :key="client.id">
+				<header>
 					<button @click="editClient(client)" class="edit">
 						<img src="@/assets/edit.png" alt="Edit" />
 					</button>
-				</td>
 
-				<td>
+					<h2>{{client.id}}</h2>
+
 					<button @click="deleteClient(client.id)" class="delete">X</button>
-				</td>
-			</tr>
-		</table>
+				</header>
+
+				<p>Name: {{client.nombre}}</p>
+				<p>Surname: {{client.apellido}}</p>
+				<p>City: {{client.ciudad}}</p>
+				<p>Company: {{client.empresa}}</p>
+			</li>
+		</ul>
 	</div>
 </template>
 
@@ -54,8 +39,8 @@ export default {
 		editClient(client) {
 			this.$emit('edit', client);
 		},
-		displayList() {
-			this.$emit('list');
+		displayTable() {
+			this.$emit('table');
 		}
 	}
 };
@@ -68,20 +53,30 @@ div {
 	margin: 0 auto;
 }
 
-table {
+ul {
 	list-style: none;
-	width: 50rem;
-	margin: 0 auto;
-	border-collapse: collapse;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
 }
 
-th {
+li {
+	margin: 1rem;
+	padding: 1rem 1.5rem;
+	border: 2px solid black;
+	border-radius: 2rem;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	justify-items: ;
 	border-bottom: 1px solid black;
 }
 
-tr:not(:first-child) {
-	height: 4rem;
-	border-top: 1px solid black;
+p {
+	margin: 0.5rem 1rem;
 }
 
 button {
@@ -97,9 +92,8 @@ button img {
 /* <Button for display mode styles> */
 button.mode {
 	margin-left: auto;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-gap: 5px;
+	top: 0;
+	right: 0;
 	padding: 5px 10px;
 }
 
@@ -110,15 +104,10 @@ button.mode:hover {
 }
 
 button.mode div {
-	width: 5px;
-	height: 5px;
+	width: 25px;
+	height: 3px;
 	background-color: #2c3e50;
+	margin: 4px 0;
 }
 /* </Button for display mode styles> */
-
-@media (max-width: 600px) {
-	div {
-		position: unset;
-	}
-}
 </style>

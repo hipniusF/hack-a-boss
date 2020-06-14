@@ -8,14 +8,34 @@
 
 		<h1 v-show="!loading">Clients:</h1>
 
+		<form v-on:submit.prevent>
+			<label for="searchById">Search client:</label>
+			<input
+				v-model="search"
+				type="text"
+				name="searchById"
+				id="searchById"
+				placeholder="Type the id of the client"
+			/>
+		</form>
+
 		<clientstable
-			v-show="!loading"
-			:clients="clients"
+			v-show="!loading && mode === 'table'"
+			:clients="filteredClient"
 			v-on:delete="deleteClient"
 			v-on:edit="editClientForm"
+			v-on:list="changeMode"
 		/>
 
-		<!-- v-if for assuring that when the form loads the props are reeady  -->
+		<clientslist
+			v-show="!loading  && mode === 'list'"
+			:clients="filteredClient"
+			v-on:delete="deleteClient"
+			v-on:edit="editClientForm"
+			v-on:table="changeMode"
+		/>
+
+		<!-- v-if for assuring that when the form loads the props are ready  -->
 		<div class="edit" v-if="edit">
 			<editform :client="clientToEdit" v-on:edit="editClientRequest" v-on:closeForm="closeForm" />
 		</div>
@@ -31,6 +51,7 @@ import Swal from 'sweetalert2';
 import { isLoggedIn, logout } from '../api/auth';
 
 // Components
+import clientslist from '@/components/ClientsList.vue';
 import clientstable from '@/components/ClientsTable.vue';
 import menucustom from '@/components/MenuCustom.vue';
 import editform from '@/components/EditForm.vue';
@@ -40,6 +61,7 @@ export default {
 	name: 'Clients',
 	components: {
 		clientstable,
+		clientslist,
 		menucustom,
 		editform,
 		loadingspinner
@@ -55,8 +77,21 @@ export default {
 			},
 			logged: false,
 			edit: false,
-			loading: true
+			loading: true,
+			mode: 'list',
+			search: null
 		};
+	},
+	computed: {
+		// Function for filtering clients
+		filteredClient() {
+			let searchResult = this.clients;
+
+			if (this.search) {
+				searchResult = searchResult.filter((client) => client.id == this.search);
+			}
+			return searchResult;
+		}
 	},
 	methods: {
 		//
@@ -127,6 +162,15 @@ export default {
 		async logout() {
 			await logout();
 			location.reload();
+		},
+		//
+		// Change display mode (alternate between list and table mode)
+		changeMode() {
+			if (this.mode === 'list') {
+				this.mode = 'table';
+			} else if (this.mode === 'table') {
+				this.mode = 'list';
+			}
 		}
 	},
 	async created() {
@@ -139,6 +183,29 @@ export default {
 </script>
 
 <style scoped>
+/* <search syles> */
+form fieldset {
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 15rem;
+	margin: 2rem auto 1rem;
+	border: 0;
+}
+
+form fieldset fieldset {
+	border: 0;
+	text-align: right;
+}
+
+form input,
+form select {
+	margin: 0 auto;
+	display: block;
+	width: 15rem;
+	height: 2rem;
+}
+/* </search syles> */
+
 .spinner {
 	position: absolute;
 	top: 50%;
@@ -151,6 +218,7 @@ h1 {
 	text-align: left;
 }
 
+/* <Edit form styles> */
 .edit {
 	position: -webkit-sticky;
 	position: sticky;
@@ -167,4 +235,5 @@ editform {
 	padding: 20px;
 	border: 1px solid #888;
 }
+/* </Edit form styles> */
 </style>

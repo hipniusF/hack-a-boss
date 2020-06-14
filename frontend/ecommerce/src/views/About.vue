@@ -15,8 +15,10 @@
 </template>
 
 <script>
+// Auth functions
 import { isLoggedIn, logout } from '../api/auth';
 
+// Components
 import menucustom from '@/components/MenuCustom.vue';
 
 export default {

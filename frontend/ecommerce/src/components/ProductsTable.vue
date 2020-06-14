@@ -47,7 +47,6 @@ ul {
 li {
 	margin: 1rem;
 	padding: 1rem;
-	border: 2px solid white;
 	border-radius: 1rem;
 
 	background: white;
@@ -77,7 +76,7 @@ p {
 }
 
 button {
-	background: #e8bd83;
+	background: #38b892;
 	border: 0;
 	padding: 1rem 2rem;
 	border-radius: 2rem;
